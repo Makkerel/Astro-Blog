@@ -1,5 +1,5 @@
 ---
-const page_title = "My Blog";
+
 ---
 
 <html lang="en">
@@ -8,12 +8,17 @@ const page_title = "My Blog";
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{page_title}</title>
+        <title>Astro</title>
     </head>
     <body>
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/blog">Blog</a>
-        <h1>{page_title}</h1>
+        <h1>Blogs</h1>
+        <ul>
+            <li><a href="/posts/lk-99">LK-99</a></li>
+            <li>CoreKeepers Review</li>
+            <li>Stay True by Hus Tsu Review</li>
+        </ul>
     </body>
 </html>
