@@ -1,4 +1,6 @@
 ---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
 import "../styles/global.css";
 ---
 
@@ -11,9 +13,7 @@ import "../styles/global.css";
         <title>Astro</title>
     </head>
     <body>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/blog">Blog</a>
+        <Header />
         <h1>Blogs</h1>
         <ul>
             <li><a href="/posts/lk-99">LK-99</a></li>
@@ -21,4 +21,8 @@ import "../styles/global.css";
             <li>Stay True by Hus Tsu Review</li>
         </ul>
     </body>
+    <Footer />
+    <script>
+        import "../scripts/menu.js";
+    </script>
 </html>

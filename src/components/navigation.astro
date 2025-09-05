@@ -1,0 +1,61 @@
+---
+
+---
+
+<style>
+    /* nav styles */
+
+    .nav_links {
+        width: 100%;
+        top: 5rem;
+        left: 48px;
+        background-color: #ff9776;
+        display: none;
+        margin: 0;
+    }
+
+    .nav_links a {
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: capitalize;
+        color: dimgray;
+    }
+
+    .nav_links a:hover,
+    .nav_links a:focus {
+        background-color: lightblue;
+    }
+
+    .nav_links a:visited,
+    .nav_links a:active {
+    }
+
+    .expanded {
+        display: unset;
+    }
+
+    @media screen and (min-width: 636px) {
+        .nav_links {
+            margin-left: 5em;
+            display: block;
+            position: static;
+            width: auto;
+            background: none;
+        }
+
+        .nav_links a {
+            display: inline-block;
+            padding: 15px 20px;
+        }
+    }
+</style>
+
+<div class="nav_links">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/blog/">Blog</a>
+</div>
