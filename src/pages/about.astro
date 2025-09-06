@@ -1,8 +1,5 @@
 ---
-import Header from "../components/header.astro";
-import Footer from "../components/footer.astro";
-import "../styles/global.css";
-
+import BaseLayout from "../layouts/baseLayout.astro";
 const page_title = "About Me";
 
 const identity = {
@@ -18,6 +15,7 @@ const text_transform = "uppercase";
 ---
 
 <style
+    is:global
     define:vars={{
         skillColor,
         font_weight,
@@ -36,34 +34,16 @@ const text_transform = "uppercase";
     }
 </style>
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{page_title}</title>
-    </head>
-
-    <body>
-        <Header />
-        <h1>{page_title}</h1>
-        <p>Some Fun Facts About Me!</p>
-        <ul>
-            <li>My name is {identity.first_name}.</li>
-            <li>
-                I live in {identity.country} and I work as a {
-                    identity.ocuupation
-                }.
-            </li>
-        </ul>
-        <p>My skills are:</p>
-        <ul>
-            {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
-    </body>
-    <Footer />
-    <script>
-        import "../scripts/menu.js";
-    </script>
-</html>
+<BaseLayout page_title={page_title}>
+    <p>Some Fun Facts About Me!</p>
+    <ul>
+        <li>My name is {identity.first_name}.</li>
+        <li>
+            I live in {identity.country} and I work as a {identity.ocuupation}.
+        </li>
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+</BaseLayout>
