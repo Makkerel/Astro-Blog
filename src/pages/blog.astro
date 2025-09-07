@@ -1,6 +1,11 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
+import Blogpost from "../components/blogpost.astro";
 import "../styles/global.css";
+
+const all_posts = Object.values(
+    import.meta.glob("./posts/*.md", { eager: true }),
+);
 
 const page_title = "Blog";
 ---
@@ -8,7 +13,10 @@ const page_title = "Blog";
 <BaseLayout page_title={page_title}>
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>
-        <li><a href="/posts/lk-99">LK-99</a></li>
-        <li>Other Stuff</li>
+        {
+            all_posts.map((post: any) => (
+                <Blogpost url={post.url} title={post.frontmatter.title} />
+            ))
+        }
     </ul>
 </BaseLayout>
