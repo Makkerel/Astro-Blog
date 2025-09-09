@@ -1,18 +1,27 @@
 ---
 import Social from "./social.astro";
+import { Image } from "astro:assets";
+import GithubSVG from "../assets/github-brands-solid.svg";
 ---
 
 <style>
     footer {
         display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    p {
+        margin: 0px;
     }
 </style>
 
 <footer>
-    <p>
-        Look At My Other Work Here!
-        <Social platform="Github" username="Makkerel" />
-    </p>
+    <a
+        href="https://github.com/Makkerel"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><Image src={GithubSVG} width={30} alt="Github Svg" /></a
+    >
+    <p>Hosted on Github Pages</p>
 </footer>

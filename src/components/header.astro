@@ -1,11 +1,24 @@
 ---
 import Navigation from "./navigation.astro";
-import Hamburger from "./hamburger.astro";
+import { Image } from "astro:assets";
+import Logo from "../assets/happy_face.png";
 ---
 
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        filter: invert(100%);
+    }
+</style>
+
 <header>
-    <nav>
-        <Hamburger />
-        <Navigation />
-    </nav>
+    <a href="/"
+        ><Image src={Logo} alt="logo" width={100} priority class="logo" /></a
+    >
+    <Navigation />
 </header>
