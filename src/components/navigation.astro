@@ -1,13 +1,11 @@
 ---
-
+import "../styles/global.css";
 ---
 
 <style>
     /* nav styles */
-
     .nav_links {
         width: 100%;
-        background-color: #ff9776;
         text-align: right;
         margin: 0;
     }
@@ -18,7 +16,7 @@
         font-size: 1.2rem;
         font-weight: bold;
         text-transform: capitalize;
-        color: dimgray;
+        color: var(--text-color);
     }
 
     @media screen and (min-width: 636px) {
@@ -33,7 +31,6 @@
 
     .nav_links a:hover,
     .nav_links a:focus {
-        background-color: lightblue;
     }
 
     .expanded {

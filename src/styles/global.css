@@ -9,30 +9,17 @@
     color-scheme: light dark;
 
     /*Dark Theme*/
-    --dark-main-color: #474747;
-    --dark-text-color: #fafafa;
-    --dark-accent-color: #aa7dce;
-    --dark-secondary-color: #ad343e;
-    --dark-tertiary-color: #58a4b0;
-
-    /*Light Theme*/
-    --light-main-color: #e6e8e6ff;
-    --light-text-color: #231f20ff;
-    --light-accent-color: #2b59c3ff;
-    --light-secondary-color: #fcf7ffff;
-    --light-tertiary-color: #00c6b5ff;
+    --main-color: light-dark(#e6e8e6ff, #474747);
+    --text-color: light-dark(#231f20ff, #fafafa);
+    --accent-color: light-dark(#2b59c3ff, #aa7dce);
+    --secondary-color: light-dark(#fcf7ffff, #ad343e);
+    --tertiary-color: light-dark(#00c6b5ff, #58a4b0);
 }
 
 html {
-    background-color: dark-light(
-        var(--light-main-color),
-        var(--dark-main-color)
-    );
+    background-color: var(--main-color);
     font-family: sans-serif;
-}
-
-main {
-    flex: 1;
+    color: var(--text-color);
 }
 
 body {
@@ -40,13 +27,11 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
     line-height: 1.5;
 }
 
-h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
+main {
+    width: 900px;
+    margin: 0 auto;
+    flex: 1;
 }

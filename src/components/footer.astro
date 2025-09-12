@@ -1,7 +1,7 @@
 ---
-import Social from "./social.astro";
 import { Image } from "astro:assets";
 import GithubSVG from "../assets/github-brands-solid.svg";
+import "../styles/global.css";
 ---
 
 <style>
@@ -9,10 +9,18 @@ import GithubSVG from "../assets/github-brands-solid.svg";
         display: flex;
         flex-direction: column;
         text-align: center;
-        margin-top: 1rem;
+        padding-top: 1rem;
+        background-color: var(--tertiary-color);
+        border: 1px solid var(--text-color);
+        border-bottom: 0px;
+        border-radius: 10px 10px 0px 0px;
+        width: 900px;
+        margin: 0 auto;
     }
     p {
-        margin: 0px;
+        margin-bottom: 1rem;
+        margin-top: 0rem;
+        color: var(--text-color);
     }
 </style>
 
