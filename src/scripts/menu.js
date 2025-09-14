@@ -1,3 +1,7 @@
-document.querySelector(".hamburger")?.addEventListener("click", () => {
-  document.querySelector(".nav_links")?.classList.toggle("expanded");
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector("header");
+
+  header.addEventListener("mouseleave", () => {
+    header.style.cssText = "";
+  });
 });
