@@ -4,7 +4,7 @@ import Blogpost from "../components/blogpost.astro";
 import "../styles/global.css";
 
 const all_posts = Object.values(
-    import.meta.glob("./posts/*.md", { eager: true }),
+    import.meta.glob("./posts/*.{md,astro}", { eager: true }),
 );
 
 const page_title = "Blog";
@@ -15,7 +15,7 @@ const page_title = "Blog";
     <ul>
         {
             all_posts.map((post: any) => (
-                <Blogpost url={post.url} title={post.frontmatter.title} />
+                <Blogpost url={post.url} title="A Title" />
             ))
         }
     </ul>

@@ -24,11 +24,13 @@ html {
 
 body {
     min-height: 100vh;
+    height: auto;
     width: 950px;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     line-height: 1.5;
+    overflow: auto;
 }
 
 main {

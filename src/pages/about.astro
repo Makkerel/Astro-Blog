@@ -1,49 +1,26 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
 const page_title = "About Me";
-
-const identity = {
-    first_name: "Kevin",
-    country: "United States",
-    ocuupation: "Univeristy Student",
-};
-
-const skills = ["HTML", "CSS", "C++", "Python"];
-const skillColor = "navy";
-const font_weight = "bold";
-const text_transform = "uppercase";
 ---
 
-<style
-    is:global
-    define:vars={{
-        skillColor,
-        font_weight,
-        text_transform,
-    }}
->
-    h1 {
-        color: purple;
-        font-size: 3rem;
-    }
-
-    .skill {
-        color: var(--skillColor);
-        font-weight: var(--font_weight);
-        text-transform: var(--text_transform);
-    }
-</style>
-
 <BaseLayout page_title={page_title}>
-    <p>Some Fun Facts About Me!</p>
-    <ul>
-        <li>My name is {identity.first_name}.</li>
-        <li>
-            I live in {identity.country} and I work as a {identity.ocuupation}.
-        </li>
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-        {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
+    <h2>My Programming Journey</h2>
+    <p>
+        My first exposure with programming was probably Scratch around the 6th
+        grade where I was just dragging blocks. I think the block dragging back
+        fired in way because I got bored of it quickly and didn't get much into
+        it. I really regret this decision. The next time I picked up programming
+        was years later in AP Computer Science where I learned Java right before
+        the beginning of the Covid Pandemic.
+    </p>
+    <p>
+        While the class did not inspire much enjoyment it opened me up to the
+        depth of programming and its potential. I'm not sure when exactly it
+        clicked but I think it was I first a functional translation program in
+        Python. Hours past without me noticing as I tinkered with my program it
+        was fulfillment that I hadn't really felt before. I started wondering
+        how everything on my computer worked and how the websites I used were
+        built. These question naturally led to me majoring in Computer Science.
+    </p>
+    <h2>Curent Interests</h2>
 </BaseLayout>
