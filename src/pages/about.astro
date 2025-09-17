@@ -4,16 +4,36 @@ const page_title = "About Me";
 ---
 
 <BaseLayout page_title={page_title}>
-    <h2>Curent Interests</h2>
-    <ul>
-        <li>Philosophy and Ethics</li>
-        <li>Cobol</li>
-    </ul>
+    <h2>Some Stats</h2>
+    <div class="stats">
+        <p class="locations">I live in San Dimas, California</p>
+        <p class="age">I'm 20 years old</p>
+        <div class="intersts">
+            <p>I'm currently interested in:</p>
+            <ul>
+                <li>Philosophy and Ethics</li>
+                <li>Cobol</li>
+            </ul>
+        </div>
+        <div class="favorites">
+            <p>My Favorites</p>
+            <ul>
+                <li><b>Food:</b> Pho</li>
+                <li><b>Programming Language:</b> C++</li>
+                <li><b>Color:</b>Blue</li>
+                <li><b>Game:</b>Terraria</li>
+            </ul>
+        </div>
+    </div>
     <h2>Recommendations</h2>
     <p>Here are some things I've really enjoyed. Theres no order to these.</p>
     <h3>Books</h3>
     <ul>
         <li>Fundamentals of Ethics by Russ Shafer-Landau</li>
+        <li>
+            Operating Systems: Three Easy Pieces by Remzi H. Arpaci-Dusseau and
+            Andrea C. Arpaci-Dusseau
+        </li>
         <li>Stay True by Hua Tsu</li>
         <li>No No Boy by John Okada</li>
         <li>Where the Red Fern Grows by Wilson Rawls</li>
@@ -66,11 +86,11 @@ const page_title = "About Me";
     </p>
     <p>
         While the class did not inspire much enjoyment it opened me up to the
-        depth of programming and its potential. I'm not sure when exactly it
-        clicked but I think it was I first a functional translation program in
-        Python. Hours past without me noticing as I tinkered with my program it
-        was fulfillment that I hadn't really felt before. I started wondering
-        how everything on my computer worked and how the websites I used were
-        built. These question naturally led to me majoring in Computer Science.
+        depth of programming and its potential. When I first wrote a functional
+        translation script in Python everything finally clicked. Hours past
+        without me noticing as I improved the program and even added a GUI. I
+        started wondering how everything on my computer worked and how the
+        websites I used were built. These question naturally led to me majoring
+        in Computer Science.
     </p>
 </BaseLayout>
