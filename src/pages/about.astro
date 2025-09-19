@@ -1,30 +1,116 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
+import { Image } from "astro:assets";
+import Face from "../assets/clown_face.jpg";
+import "../styles/global.css";
+
 const page_title = "About Me";
 ---
+
+<style>
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(100px, auto));
+        gap: 10px;
+    }
+    .grid-item {
+        margin: 0;
+        background-color: var(--secondary-color);
+        padding: 10px;
+        border-radius: 15px;
+    }
+    .face_figure {
+        grid-row: span 2;
+        margin: 0;
+    }
+    .face {
+        border-radius: 10px;
+    }
+    .locations {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        text-align: center;
+    }
+    .age {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 25px;
+    }
+    .interests {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .interests ul {
+        list-style-type: none;
+        padding-left: 0;
+        font-size: 1.5em;
+        margin: 0;
+    }
+    .favorites {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .favorites ul {
+        margin: 0;
+        list-style-type: none;
+        padding-left: 0;
+        font-size: 1.25em;
+    }
+</style>
 
 <BaseLayout page_title={page_title}>
     <h2>Some Stats</h2>
     <div class="stats">
-        <p class="locations">I live in San Dimas, California</p>
-        <p class="age">I'm 20 years old</p>
-        <div class="intersts">
-            <p>I'm currently interested in:</p>
+        <figure class="face_figure">
+            <Image src={Face} alt="My Face" } class="face" width="200" />
+            <figcaption><b>Me at a Clown Exhibit</b></figcaption>
+        </figure>
+        <p class="locations grid-item">
+            Located in<br /> San Dimas, California
+        </p>
+        <p class="age grid-item">I'm 20 years old</p>
+        <div class="interests grid-item">
+            <h2>Current Interests</h2>
             <ul>
-                <li>Philosophy and Ethics</li>
+                <li>Moral Philosophy</li>
                 <li>Cobol</li>
+                <li>OpenGL</li>
             </ul>
         </div>
-        <div class="favorites">
-            <p>My Favorites</p>
+        <div class="favorites grid-item">
+            <h2>Favorites</h2>
             <ul>
                 <li><b>Food:</b> Pho</li>
                 <li><b>Programming Language:</b> C++</li>
-                <li><b>Color:</b>Blue</li>
-                <li><b>Game:</b>Terraria</li>
+                <li><b>Color:</b> Blue</li>
+                <li><b>Game:</b> Terraria</li>
             </ul>
         </div>
     </div>
+    <h2>My Programming Journey</h2>
+    <p>
+        My first exposure with programming was probably Scratch around the 6th
+        grade where I was just dragging blocks. I think the block dragging back
+        fired in way because I got bored of it quickly and didn't get much into
+        it. I really regret this decision. The next time I picked up programming
+        was years later in AP Computer Science where I learned Java right before
+        the beginning of the Covid Pandemic.
+    </p>
+    <p>
+        While the class did not inspire much enjoyment it opened me up to the
+        depth of programming and its potential. When I first wrote a functional
+        translation script in Python everything finally clicked. Hours past
+        without me noticing as I improved the program and even added a GUI. I
+        started wondering how everything on my computer worked and how the
+        websites I used were built. These question naturally led to me majoring
+        in Computer Science.
+    </p>
     <h2>Recommendations</h2>
     <p>Here are some things I've really enjoyed. Theres no order to these.</p>
     <h3>Books</h3>
@@ -75,22 +161,4 @@ const page_title = "About Me";
         <li><a href="https://coolors.co/">Coolor Co</a></li>
         <p>Allows you to generate color schemes</p>
     </ul>
-    <h2>My Programming Journey</h2>
-    <p>
-        My first exposure with programming was probably Scratch around the 6th
-        grade where I was just dragging blocks. I think the block dragging back
-        fired in way because I got bored of it quickly and didn't get much into
-        it. I really regret this decision. The next time I picked up programming
-        was years later in AP Computer Science where I learned Java right before
-        the beginning of the Covid Pandemic.
-    </p>
-    <p>
-        While the class did not inspire much enjoyment it opened me up to the
-        depth of programming and its potential. When I first wrote a functional
-        translation script in Python everything finally clicked. Hours past
-        without me noticing as I improved the program and even added a GUI. I
-        started wondering how everything on my computer worked and how the
-        websites I used were built. These question naturally led to me majoring
-        in Computer Science.
-    </p>
 </BaseLayout>

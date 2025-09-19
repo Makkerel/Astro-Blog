@@ -1,3 +1,6 @@
+/*Font*/
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 /*Border Box Sizing For Everthing*/
 *,
 *::before,
@@ -12,13 +15,14 @@
     --main-color: light-dark(#e6e8e6ff, #474747);
     --text-color: light-dark(#231f20ff, #fafafa);
     --accent-color: light-dark(#2b59c3ff, #aa7dce);
-    --secondary-color: light-dark(#fcf7ffff, #ad343e);
+    --secondary-color: light-dark(#fcf7ffff, #191716);
     --tertiary-color: light-dark(#00c6b5ff, #58a4b0);
 }
 
 html {
     background-color: var(--main-color);
-    font-family: sans-serif;
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-size: 18px;
     color: var(--text-color);
 }
 
