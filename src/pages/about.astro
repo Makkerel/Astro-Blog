@@ -2,12 +2,33 @@
 import BaseLayout from "../layouts/baseLayout.astro";
 import { Image } from "astro:assets";
 import Face from "../assets/clown_face.jpg";
+import Link from "../components/link.astro";
 import "../styles/global.css";
 
 const page_title = "About Me";
 ---
 
 <style>
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    h2 {
+        margin-bottom: 0;
+    }
+    h3 {
+        margin: 0.75em 0;
+        margin-bottom: 0;
+    }
+    p {
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:visited {
+    }
     .stats {
         display: grid;
         grid-template-columns: repeat(3, minmax(100px, auto));
@@ -46,10 +67,7 @@ const page_title = "About Me";
         align-items: center;
     }
     .interests ul {
-        list-style-type: none;
-        padding-left: 0;
         font-size: 1.5em;
-        margin: 0;
     }
     .favorites {
         display: flex;
@@ -57,9 +75,6 @@ const page_title = "About Me";
         align-items: center;
     }
     .favorites ul {
-        margin: 0;
-        list-style-type: none;
-        padding-left: 0;
         font-size: 1.25em;
     }
 </style>
@@ -86,10 +101,10 @@ const page_title = "About Me";
         <div class="favorites grid-item">
             <h2>Favorites</h2>
             <ul>
-                <li><b>Food:</b> Pho</li>
-                <li><b>Programming Language:</b> C++</li>
-                <li><b>Color:</b> Blue</li>
-                <li><b>Game:</b> Terraria</li>
+                <li>Food: Pho</li>
+                <li>Programming Language: C++</li>
+                <li>Color: Blue</li>
+                <li>Game: Terraria</li>
             </ul>
         </div>
     </div>
@@ -112,7 +127,7 @@ const page_title = "About Me";
         in Computer Science.
     </p>
     <h2>Recommendations</h2>
-    <p>Here are some things I've really enjoyed. Theres no order to these.</p>
+    <p>These are some things I recommend in no particular order</p>
     <h3>Books</h3>
     <ul>
         <li>Fundamentals of Ethics by Russ Shafer-Landau</li>
@@ -135,10 +150,7 @@ const page_title = "About Me";
         </li>
     </ul>
     <h3>Movies</h3>
-    <p>
-        Truthfully I don't really watch many movies but out of the few I have
-        watched these gave me the most enjoyment.
-    </p>
+    <p>I don't really watch movies but these are some recent favorites</p>
     <ul>
         <li>Margin Call</li>
         <li>Kpop Demon Hunters</li>
@@ -154,11 +166,19 @@ const page_title = "About Me";
     <h3>Websites</h3>
     <p>Some maybe useful websites.</p>
     <ul>
-        <li><a href="https://annas-archive.org/">Anna's Archive</a></li>
-        <p>Massive Digital Library</p>
-        <li><a href="https://wotaku.wiki/">Wotaku Wiki</a></li>
-        <p>Index for all things anime</p>
-        <li><a href="https://coolors.co/">Coolor Co</a></li>
-        <p>Allows you to generate color schemes</p>
+        <li>
+            <Link link="https://annas-archive.org/" name="Anna's Archive:" />
+            <span> Massive Digital Library</span>
+        </li>
+
+        <li>
+            <Link link="https://wotaku.wiki/" name="Wotaku Wiki:" />
+            <span> Index for all things anime</span>
+        </li>
+
+        <li>
+            <Link link="https://coolors.co/" name="Coolor Co:" />
+            <span> Allows you to generate color schemes</span>
+        </li>
     </ul>
 </BaseLayout>

@@ -1,0 +1,15 @@
+---
+import "../styles/global.css";
+const { link, name } = Astro.props;
+---
+
+<style>
+    a {
+        text-decoration: none;
+        color: var(--accent-color);
+    }
+    a:hover {
+        filter: brightness(150%);
+    }
+</style>
+<a href={link} target="_blank" rel="noopener noreferrer">{name}</a>
