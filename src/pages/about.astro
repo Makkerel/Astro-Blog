@@ -39,6 +39,11 @@ const page_title = "About Me";
         background-color: var(--secondary-color);
         padding: 10px;
         border-radius: 15px;
+        align-items: center;
+        justify-content: center;
+    }
+    .grid-item h2 {
+        margin-top: 0;
     }
     .face_figure {
         grid-row: span 2;
@@ -49,22 +54,17 @@ const page_title = "About Me";
     }
     .locations {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 25px;
+        font-size: 1.5em;
         text-align: center;
     }
     .age {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        font-size: 1.5em;
         text-align: center;
-        font-size: 25px;
     }
     .interests {
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
     .interests ul {
         font-size: 1.5em;
@@ -72,7 +72,6 @@ const page_title = "About Me";
     .favorites {
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
     .favorites ul {
         font-size: 1.25em;
@@ -179,6 +178,10 @@ const page_title = "About Me";
         <li>
             <Link link="https://coolors.co/" name="Coolor Co:" />
             <span> Allows you to generate color schemes</span>
+        </li>
+        <li>
+            <Link link="https://devhints.io/" name="Dev Hints: " />
+            <span> Some useful cheatsheets for devs</span>
         </li>
     </ul>
 </BaseLayout>
