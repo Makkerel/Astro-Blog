@@ -9,36 +9,39 @@ const page_title = "About Me";
 ---
 
 <style>
-    ul {
-        list-style-type: none;
-        padding-left: 0;
+    h1,
+    h2,
+    h3 {
+        border: 1px solid var(--secondary-color);
+        border-left: 0px;
+        border-right: 0px;
+        padding-left: 1rem;
+        padding-right: 1rem;
         margin: 0;
     }
-    h2 {
-        margin-bottom: 0;
-    }
-    h3 {
-        margin: 0.75em 0;
-        margin-bottom: 0;
+    ul {
+        list-style-type: none;
+        padding-left: 1rem;
+        margin: 0;
     }
     p {
         margin: 0;
+        padding: 1rem;
     }
     a {
         text-decoration: none;
     }
-    a:visited {
-    }
     .stats {
+        padding: 1rem;
         display: grid;
         grid-template-columns: repeat(3, minmax(100px, auto));
         gap: 10px;
     }
     .grid-item {
         margin: 0;
-        background-color: var(--secondary-color);
+        background-color: var(--main-color);
+        border: 1px solid var(--secondary-color);
         padding: 10px;
-        border-radius: 15px;
         align-items: center;
         justify-content: center;
     }
@@ -48,9 +51,6 @@ const page_title = "About Me";
     .face_figure {
         grid-row: span 2;
         margin: 0;
-    }
-    .face {
-        border-radius: 10px;
     }
     .locations {
         display: flex;
@@ -79,7 +79,7 @@ const page_title = "About Me";
 </style>
 
 <BaseLayout page_title={page_title}>
-    <h2>Some Stats</h2>
+    <h1>About Me</h1>
     <div class="stats">
         <figure class="face_figure">
             <Image src={Face} alt="My Face" } class="face" width="200" />
@@ -90,7 +90,7 @@ const page_title = "About Me";
         </p>
         <p class="age grid-item">I'm 20 years old</p>
         <div class="interests grid-item">
-            <h2>Current Interests</h2>
+            <h3>Current Interests</h3>
             <ul>
                 <li>Moral Philosophy</li>
                 <li>Cobol</li>
@@ -98,7 +98,7 @@ const page_title = "About Me";
             </ul>
         </div>
         <div class="favorites grid-item">
-            <h2>Favorites</h2>
+            <h3>Favorites</h3>
             <ul>
                 <li>Food: Pho</li>
                 <li>Programming Language: C++</li>
@@ -128,40 +128,36 @@ const page_title = "About Me";
     <h2>Recommendations</h2>
     <p>These are some things I recommend in no particular order</p>
     <h3>Books</h3>
-    <ul>
-        <li>Fundamentals of Ethics by Russ Shafer-Landau</li>
-        <li>
-            Operating Systems: Three Easy Pieces by Remzi H. Arpaci-Dusseau and
-            Andrea C. Arpaci-Dusseau
-        </li>
-        <li>Stay True by Hua Tsu</li>
-        <li>No No Boy by John Okada</li>
-        <li>Where the Red Fern Grows by Wilson Rawls</li>
-    </ul>
+    <p>
+        Fundamentals of Ethics by Russ Shafer-Landau
+        <br />Operating Systems: Three Easy Pieces by Remzi H. Arpaci-Dusseau
+        and Andrea C. Arpaci-Dusseau
+        <br />Stay True by Hua Tsu
+        <br />No No Boy by John Okada
+        <br />Where the Red Fern Grows by Wilson Rawls
+    </p>
     <h3>Manga</h3>
-    <ul>
-        <li>Grand Blue by Kenji Inoue</li>
-        <li>Kengan Asura by Yabako Sandrovich</li>
-        <li>Dungeon Meshi by Kui Ryouko</li>
-        <li>The Case Study of Vanitas by Mochizuki Jun</li>
-        <li>
-            The Apothecary Diaries by Hyuuga Natsu, Nanao Itsuki, Nekokurage
-        </li>
-    </ul>
+    <p>
+        Grand Blue by Kenji Inoue
+        <br />Kengan Asura by Yabako Sandrovich
+        <br />Dungeon Meshi by Kui Ryouko
+        <br />The Case Study of Vanitas by Mochizuki Jun
+        <br />The Apothecary Diaries by Hyuuga Natsu, Nanao Itsuki, Nekokurage
+    </p>
     <h3>Movies</h3>
-    <p>I don't really watch movies but these are some recent favorites</p>
-    <ul>
-        <li>Margin Call</li>
-        <li>Kpop Demon Hunters</li>
-    </ul>
+    <p>
+        I don't really watch movies but these are some recent favorites
+        <br />Margin Call
+        <br />Kpop Demon Hunters
+    </p>
     <h3>TV Shows</h3>
-    <p>I also don't really watch TV Shows</p>
-    <ul>
-        <li>Arcane</li>
-        <li>Severance</li>
-        <li>House</li>
-        <li>Mythbusters</li>
-    </ul>
+    <p>
+        I also don't really watch TV Shows
+        <br /> Arcane
+        <br /> Severance
+        <br /> House
+        <br /> Mythbusters
+    </p>
     <h3>Websites</h3>
     <p>Some maybe useful websites.</p>
     <ul>

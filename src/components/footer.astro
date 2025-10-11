@@ -10,16 +10,27 @@ import "../styles/global.css";
         flex-direction: column;
         text-align: center;
         padding-top: 1rem;
-        background-color: var(--tertiary-color);
-        border: 1px solid var(--text-color);
+        background-color: var(--main-color);
+        border: 1px solid var(--secondary-color);
         border-bottom: 0px;
-        border-radius: 10px 10px 0px 0px;
+        border-left: none;
+        border-right: none;
         margin-top: 2em;
     }
     p {
         margin-bottom: 1rem;
         margin-top: 0rem;
         color: var(--text-color);
+    }
+
+    .logo {
+        filter: invert(0);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .logo {
+            filter: invert(100);
+        }
     }
 </style>
 
@@ -28,7 +39,7 @@ import "../styles/global.css";
         href="https://github.com/Makkerel"
         target="_blank"
         rel="noopener noreferrer"
-        ><Image src={GithubSVG} width={30} alt="Github Svg" /></a
+        ><Image src={GithubSVG} width={30} alt="Github Svg" class="logo" /></a
     >
     <p>Hosted on Github Pages</p>
 </footer>

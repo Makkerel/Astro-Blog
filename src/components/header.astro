@@ -1,7 +1,7 @@
 ---
 import Navigation from "./navigation.astro";
 import { Image } from "astro:assets";
-import Logo from "../assets/happy_face.png";
+import Logo from "../assets/spiral.png";
 ---
 
 <style>
@@ -9,27 +9,26 @@ import Logo from "../assets/happy_face.png";
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: var(--tertiary-color);
-        border: 1px solid var(--text-color);
-        border-radius: 10px;
-        margin: 1em 0px;
-        padding: 0 1em;
+        background-color: var(--main_color);
+        border-top: 1px solid var(--secondary-color);
+        padding: 0 1rem;
     }
 
     .logo {
-        filter: invert(100%);
+        filter: invert(0);
+        padding: 0.5rem;
     }
 
     @media (prefers-color-scheme: dark) {
         .logo {
-            filter: invert(0);
+            filter: invert(100);
         }
     }
 </style>
 
 <header>
     <a href="/"
-        ><Image src={Logo} alt="logo" width={100} priority class="logo" /></a
+        ><Image src={Logo} alt="Logo" width={80} class="logo" format="png" /></a
     >
     <Navigation />
 </header>
