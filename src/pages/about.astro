@@ -9,28 +9,6 @@ const page_title = "About Me";
 ---
 
 <style>
-    h1,
-    h2,
-    h3 {
-        border: 1px solid var(--secondary-color);
-        border-left: 0px;
-        border-right: 0px;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        margin: 0;
-    }
-    ul {
-        list-style-type: none;
-        padding-left: 1rem;
-        margin: 0;
-    }
-    p {
-        margin: 0;
-        padding: 1rem;
-    }
-    a {
-        text-decoration: none;
-    }
     .stats {
         padding: 1rem;
         display: grid;
@@ -38,43 +16,29 @@ const page_title = "About Me";
         gap: 10px;
     }
     .grid-item {
-        margin: 0;
         background-color: var(--main-color);
         border: 1px solid var(--secondary-color);
-        padding: 10px;
-        align-items: center;
-        justify-content: center;
+        font-size: 1.4em;
     }
-    .grid-item h2 {
-        margin-top: 0;
+    .grid-item h3 {
+        border-top: none;
     }
     .face_figure {
         grid-row: span 2;
         margin: 0;
-    }
-    .locations {
-        display: flex;
-        font-size: 1.5em;
         text-align: center;
     }
+    .locations,
     .age {
         display: flex;
-        font-size: 1.5em;
         text-align: center;
+        align-items: center;
+        justify-content: center;
     }
-    .interests {
-        display: flex;
-        flex-direction: column;
-    }
-    .interests ul {
-        font-size: 1.5em;
-    }
+    .interests,
     .favorites {
         display: flex;
         flex-direction: column;
-    }
-    .favorites ul {
-        font-size: 1.25em;
     }
 </style>
 
@@ -91,20 +55,20 @@ const page_title = "About Me";
         <p class="age grid-item">I'm 20 years old</p>
         <div class="interests grid-item">
             <h3>Current Interests</h3>
-            <ul>
-                <li>Moral Philosophy</li>
-                <li>Cobol</li>
-                <li>OpenGL</li>
-            </ul>
+            <p>
+                Moral Philosophy<br />
+                Cobol <br />
+                OpenGL <br />
+            </p>
         </div>
         <div class="favorites grid-item">
             <h3>Favorites</h3>
-            <ul>
-                <li>Food: Pho</li>
-                <li>Programming Language: C++</li>
-                <li>Color: Blue</li>
-                <li>Game: Terraria</li>
-            </ul>
+            <p>
+                Food: Pho <br />
+                Programming Language: C++ <br />
+                Song: Movin' Out by Billy Joel<br />
+                Game: Terraria <br />
+            </p>
         </div>
     </div>
     <h2>My Programming Journey</h2>
@@ -159,25 +123,19 @@ const page_title = "About Me";
         <br /> Mythbusters
     </p>
     <h3>Websites</h3>
-    <p>Some maybe useful websites.</p>
-    <ul>
-        <li>
-            <Link link="https://annas-archive.org/" name="Anna's Archive:" />
-            <span> Massive Digital Library</span>
-        </li>
-
-        <li>
-            <Link link="https://wotaku.wiki/" name="Wotaku Wiki:" />
-            <span> Index for all things anime</span>
-        </li>
-
-        <li>
-            <Link link="https://coolors.co/" name="Coolor Co:" />
-            <span> Allows you to generate color schemes</span>
-        </li>
-        <li>
-            <Link link="https://devhints.io/" name="Dev Hints: " />
-            <span> Some useful cheatsheets for devs</span>
-        </li>
-    </ul>
+    <p>
+        Some maybe useful websites.
+        <br />
+        <Link link="https://annas-archive.org/" name="Anna's Archive:" />
+        <span> Massive Digital Library</span>
+        <br />
+        <Link link="https://wotaku.wiki/" name="Wotaku Wiki:" />
+        <span> Index for all things anime</span>
+        <br />
+        <Link link="https://coolors.co/" name="Coolor Co:" />
+        <span> Allows you to generate color schemes</span>
+        <br />
+        <Link link="https://devhints.io/" name="Dev Hints: " />
+        <span> Some useful cheatsheets for devs</span>
+    </p>
 </BaseLayout>
