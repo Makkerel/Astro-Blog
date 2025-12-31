@@ -11,5 +11,9 @@ const { link, name } = Astro.props;
     a:hover {
         filter: brightness(150%);
     }
+    a::after {
+        content: "↗";
+        font-size: 80%;
+    }
 </style>
 <a href={link} target="_blank" rel="noopener noreferrer">{name}</a>

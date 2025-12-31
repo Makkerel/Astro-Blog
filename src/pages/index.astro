@@ -1,15 +1,107 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
+import Link from "../components/link.astro";
+import { Image } from "astro:assets";
+import happy_man from "../assets/stick_figures/Happy guy.png";
+import sad_man from "../assets/stick_figures/Sad guy.png";
+import angry_man from "../assets/stick_figures/Angry guy.png";
+import scared_man from "../assets/stick_figures/Scared guy.png";
+import wow_man from "../assets/stick_figures/Wow guy.png";
+import ble_man from "../assets/stick_figures/BLE guy.png";
 import "../styles/global.css";
 const page_title = "Welcome";
 ---
 
+<style>
+    .intro_paragraph {
+        display: flex;
+        place-items: center;
+    }
+    .intro_p {
+        flex: 2;
+    }
+    .intro_img {
+        text-align: center;
+        flex: 1;
+    }
+    #img_container {
+        display: grid;
+        grid-template-areas: "stack";
+        cursor: pointer;
+    }
+    .img_list {
+        grid-area: stack;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+        pointer-events: none;
+    }
+    .img_list.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+</style>
+
+<script>
+    const image_container = document.getElementById("img_container");
+    const images = document.querySelectorAll(".img_list");
+    let currentIndex = 0;
+    image_container!.addEventListener("click", () => {
+        let nextIndex;
+        do {
+            nextIndex = Math.floor(Math.random() * images.length);
+        } while (nextIndex === currentIndex);
+        images[currentIndex].classList.remove("active");
+        images[nextIndex].classList.add("active");
+        currentIndex = nextIndex;
+    });
+</script>
+
 <BaseLayout page_title={page_title}>
-    <h1>Welcome</h1>
-    <p>
-        Hello I'm Kevin and this website serves as the corner of the internet
-        where I put my stuff. I'm currently a student at UCSB studying computer
-        science with a minor in math.
-    </p>
-    <h2>Recent Blogs</h2>
+    <h1>Welcome!</h1>
+    <div class="intro_paragraph">
+        <div class="intro_p">
+            <p>
+                Hi I'm Kevin and this website serves as the corner of the
+                internet where I put my stuff(not a lot of it right now). I'm
+                currently a student at UCSB studying computer science with a
+                minor in math.
+            </p>
+            <p>
+                Most of the stuff here is text but I'm learning to draw so
+                hopefully I have some artwork here soon.
+            </p>
+            <p>
+                Find Me: <br />
+                <Link link="https://github.com/Makkerel" name="Github" />
+                <br />
+                <Link
+                    link="https://www.linkedin.com/in/kevin-zhao-955069334"
+                    name="LinkedIn"
+                />
+                <br />
+                <Link
+                    link="https://ucsb.joinhandshake.com/profiles/xddrqq"
+                    name="Handshake"
+                />
+            </p>
+        </div>
+        <div class="intro_img">
+            Click Me!
+            <div id="img_container">
+                <Image
+                    src={happy_man}
+                    alt="happy man"
+                    class="img_list active"
+                />
+                <Image src={sad_man} alt="sad man" class="img_list" />
+                <Image src={angry_man} alt="angry man" class="img_list" />
+                <Image src={scared_man} alt="scared man" class="img_list" />
+                <Image src={wow_man} alt="wow man" class="img_list" />
+                <Image src={ble_man} alt="ble man" class="img_list" />
+            </div>
+        </div>
+    </div>
+    <h2>Recent Stuff</h2>
 </BaseLayout>

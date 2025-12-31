@@ -18,7 +18,7 @@ const page_title = "About Me";
     .grid-item {
         background-color: var(--main-color);
         border: 1px solid var(--secondary-color);
-        font-size: 1.4em;
+        font-size: 1.25rem;
     }
     .grid-item h3 {
         border-top: none;
@@ -27,6 +27,9 @@ const page_title = "About Me";
         grid-row: span 2;
         margin: 0;
         text-align: center;
+    }
+    .face {
+        max-width: 100%;
     }
     .locations,
     .age {
@@ -46,7 +49,7 @@ const page_title = "About Me";
     <h1>About Me</h1>
     <div class="stats">
         <figure class="face_figure">
-            <Image src={Face} alt="My Face" } class="face" width="200" />
+            <Image src={Face} alt="My Face" } class="face" width={200} />
             <figcaption><b>Me at a Clown Exhibit</b></figcaption>
         </figure>
         <p class="locations grid-item">
@@ -57,7 +60,6 @@ const page_title = "About Me";
             <h3>Current Interests</h3>
             <p>
                 Moral Philosophy<br />
-                Cobol <br />
                 OpenGL <br />
             </p>
         </div>
@@ -74,23 +76,25 @@ const page_title = "About Me";
     <h2>My Programming Journey</h2>
     <p>
         My first exposure with programming was probably Scratch around the 6th
-        grade where I was just dragging blocks. I think the block dragging back
-        fired in way because I got bored of it quickly and didn't get much into
-        it. I really regret this decision. The next time I picked up programming
-        was years later in AP Computer Science where I learned Java right before
-        the beginning of the Covid Pandemic.
+        grade where I was just dragging blocks. The block dragging was annoying
+        and I quickly dropped this programming thing. The next time I picked up
+        programming was years later in AP Computer Science where I learned Java
+        right before the beginning of the Covid Pandemic.
     </p>
     <p>
         While the class did not inspire much enjoyment it opened me up to the
-        depth of programming and its potential. When I first wrote a functional
-        translation script in Python everything finally clicked. Hours past
+        depth of programming and its potential. When I wrote a language
+        translation program in Python it was my proudest moment. Hours went by
         without me noticing as I improved the program and even added a GUI. I
         started wondering how everything on my computer worked and how the
-        websites I used were built. These question naturally led to me majoring
-        in Computer Science.
+        websites I used were built. These questions naturally led to me majoring
+        in Computer Science at UCSB.
     </p>
     <h2>Recommendations</h2>
-    <p>These are some things I recommend in no particular order</p>
+    <p>
+        These are some things I recommend in no particular order. I don't really
+        watch movies or TV shows though
+    </p>
     <h3>Books</h3>
     <p>
         Fundamentals of Ethics by Russ Shafer-Landau
@@ -110,16 +114,14 @@ const page_title = "About Me";
     </p>
     <h3>Movies</h3>
     <p>
-        I don't really watch movies but these are some recent favorites
-        <br />Margin Call
+        Margin Call
         <br />Kpop Demon Hunters
     </p>
     <h3>TV Shows</h3>
     <p>
-        I also don't really watch TV Shows
-        <br /> Arcane
+        Arcane
         <br /> Severance
-        <br /> House
+        <br /> House M.D.
         <br /> Mythbusters
     </p>
     <h3>Websites</h3>
@@ -135,7 +137,7 @@ const page_title = "About Me";
         <Link link="https://coolors.co/" name="Coolor Co:" />
         <span> Allows you to generate color schemes</span>
         <br />
-        <Link link="https://devhints.io/" name="Dev Hints: " />
+        <Link link="https://devhints.io/" name="Dev Hints:" />
         <span> Some useful cheatsheets for devs</span>
     </p>
 </BaseLayout>
