@@ -12,8 +12,10 @@ const { link, name } = Astro.props;
         filter: brightness(150%);
     }
     a::after {
+        position: relative;
         content: "↗";
-        font-size: 80%;
+        font-size: 60%;
+        top: -0.2rem;
     }
 </style>
 <a href={link} target="_blank" rel="noopener noreferrer">{name}</a>
