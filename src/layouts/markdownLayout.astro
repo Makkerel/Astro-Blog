@@ -28,7 +28,7 @@ const { frontmatter } = Astro.props;
 <BaseLayout page_title={frontmatter.title}>
     <p>Written by {frontmatter.author}</p>
     <p>
-        Published On: {frontmatter.publication_date.toString().slice(0, 10)}
+        Published On: {frontmatter.date.toString().slice(0, 10)}
     </p>
     <p>{frontmatter.description}</p>
     <div class="tags">

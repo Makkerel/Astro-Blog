@@ -1,5 +1,25 @@
 ---
-const { url, title } = Astro.props;
+const { url, title, date, description } = Astro.props;
 ---
 
-<li><a href={url}>{title}</a></li>
+<style>
+    .post {
+        outline: 1px solid var(--secondary-color);
+        margin: 0;
+        transition: filter 0.3s ease;
+    }
+
+    .post:hover {
+        filter: brightness(150%);
+    }
+</style>
+<section class="post">
+    <a href={url}>
+        <p>
+            {title}
+            <br />
+            <time datetime={date}>{date}</time><br />
+            {description}
+        </p>
+    </a>
+</section>
