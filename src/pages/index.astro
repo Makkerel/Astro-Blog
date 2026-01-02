@@ -118,15 +118,17 @@ all_posts.sort((a: any, b: any) => {
             </div>
         </div>
     </div>
-    <h2>Recent Stuff</h2>
+    <h2>Recent Blogs</h2>
     {
-        all_posts.map((post: any) => (
-            <Blogpost
-                url={post.url}
-                title={post.frontmatter.title}
-                date={post.frontmatter.date}
-                description={post.frontmatter.description}
-            />
-        ))
+        all_posts
+            .slice(0, 3)
+            .map((post: any) => (
+                <Blogpost
+                    url={post.url}
+                    title={post.frontmatter.title}
+                    date={post.frontmatter.date}
+                    description={post.frontmatter.description}
+                />
+            ))
     }
 </BaseLayout>
