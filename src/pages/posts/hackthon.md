@@ -3,7 +3,7 @@ layout: ../../layouts/markdownLayout.astro
 title:  Going to a Hackathon
 author: Kevin Zhao
 description: "My First Hackathon Experience"
-publication_date: 2023-01-16
+date: 2023-01-16
 tags: ["Programming", "Review", "Life"]
 ---
 

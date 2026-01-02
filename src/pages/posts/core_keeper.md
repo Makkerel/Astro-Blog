@@ -3,7 +3,7 @@ layout: ../../layouts/markdownLayout.astro
 title: Core Keeper Review
 author: Kevin Zhao
 description: "A Review of Core Keeper"
-publication_date: 2023-01-03
+date: 2023-01-03
 tags: ["Video Games", "Review"]
 ---
 
