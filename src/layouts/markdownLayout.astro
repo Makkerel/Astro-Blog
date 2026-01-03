@@ -5,40 +5,45 @@ const { frontmatter } = Astro.props;
 ---
 
 <style>
-    a {
-        text-decoration: none;
-        color: #00539f;
+    :global(pre) {
+        margin: 1rem;
+    }
+
+    :global(p) :global(a) {
+        color: var(--accent-color);
     }
 
     .tags {
         display: flex;
-        flex-wrap: wrap;
+        padding: 1rem;
+        gap: 1rem;
     }
 
     .tag {
-        margin: 0.25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: 0.5em;
-        padding: 0.5em 1em;
-        font-size: 1.15em;
-        background-color: #f8fcfd;
+        font-size: 150%;
+        padding: 1rem;
+        border: 1px solid var(--secondary-color);
     }
 </style>
 
 <BaseLayout page_title={frontmatter.title}>
-    <p>Written by {frontmatter.author}</p>
+    <h1>{frontmatter.title}</h1>
     <p>
+        {frontmatter.author}
+        <br />
         Published On: {frontmatter.date.toString().slice(0, 10)}
+        <br />
+        {frontmatter.description}
     </p>
-    <p>{frontmatter.description}</p>
+    <slot />
+    <h3>Tags</h3>
     <div class="tags">
         {
             frontmatter.tags.map((tag: string) => (
-                <p class="tag">
-                    <a href={`/tags/${tag}`}>{tag}</a>
-                </p>
+                <a href="/blogs" class="tag">
+                    {tag}
+                </a>
             ))
         }
     </div>
-    <slot />
 </BaseLayout>

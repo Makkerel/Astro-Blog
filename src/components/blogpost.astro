@@ -12,14 +12,27 @@ const { url, title, date, description } = Astro.props;
     .post:hover {
         filter: brightness(150%);
     }
+
+    .title {
+        font-size: 130%;
+    }
+
+    time {
+        font-size: 80%;
+        opacity: 70%;
+    }
+
+    .description {
+        font-size: 105%;
+    }
 </style>
 <section class="post">
     <a href={url}>
         <p>
-            {title}
+            <span class="title">{title}</span>
             <br />
-            <time datetime={date}>{date}</time><br />
-            {description}
+            <time datetime={date}>{date.toString().slice(0, 10)}</time><br />
+            <span class="description">{description}</span>
         </p>
     </a>
 </section>
