@@ -13,6 +13,10 @@ const { frontmatter } = Astro.props;
         color: var(--accent-color);
     }
 
+    :global(p) :global(a:hover) {
+        filter: brightness(150%);
+    }
+
     .tags {
         display: flex;
         padding: 1rem;
@@ -21,8 +25,13 @@ const { frontmatter } = Astro.props;
 
     .tag {
         font-size: 150%;
-        padding: 1rem;
+        padding: 0.5rem;
         border: 1px solid var(--secondary-color);
+        transition: filter 0.3s ease;
+    }
+
+    .tag:hover {
+        filter: brightness(150%);
     }
 </style>
 

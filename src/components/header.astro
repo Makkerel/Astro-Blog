@@ -7,15 +7,24 @@ import "../styles/global.css";
 
 <style>
     header {
+        position: sticky;
+        top: 0;
         display: flex;
+        outline: 1px solid var(--secondary-color);
+        background-color: var(--main-color);
+        background-attachment: fixed;
         justify-content: space-between;
         align-items: center;
-        background-color: var(--main_color);
         padding: 0 1rem;
     }
 
     .logo {
         padding: 0.5rem;
+        filter: brightness(0.8);
+        transition: filter 0.3s ease;
+    }
+    .logo:hover {
+        filter: brightness(1.1);
     }
 </style>
 
