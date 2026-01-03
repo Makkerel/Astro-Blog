@@ -7,9 +7,9 @@ date: 2023-01-03
 tags: ["Video Games", "Review"]
 ---
 
-<div class="top_img">
+<div class="top_img" style="display: flex; justify-content: center">
     <img
-        style="width: 100%"
+        style="width: 70%"
         id="core_keeper"
         src="/CoreKeeper/core_keeper.jpg"
         alt="core_keeper"

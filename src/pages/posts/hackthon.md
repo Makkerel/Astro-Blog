@@ -7,9 +7,6 @@ date: 2023-01-16
 tags: ["Programming", "Review", "Life"]
 ---
 
-<div class="top_img">
-    <img src="../images/sbhacks.png" alt="sbhacks" />
-</div>
 <p>
     I went to
     <a
