@@ -13,7 +13,7 @@ import "../styles/global.css";
 const page_title = "Welcome";
 
 const all_posts = Object.values(
-    import.meta.glob("./posts/*.md", { eager: true }),
+    import.meta.glob("./posts/*.mdx", { eager: true }),
 );
 
 all_posts.sort((a: any, b: any) => {

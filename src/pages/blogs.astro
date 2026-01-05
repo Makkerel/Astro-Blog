@@ -3,12 +3,33 @@ import BaseLayout from "../layouts/baseLayout.astro";
 import Blogpost from "../components/blogpost.astro";
 import "../styles/global.css";
 const all_posts = Object.values(
-    import.meta.glob("./posts/*.{md,astro}", { eager: true }),
+    import.meta.glob("./posts/*.mdx", { eager: true }),
 );
 const page_title = "Blog";
+
+all_posts.sort((a: any, b: any) => {
+    if (a.frontmatter.date < b.frontmatter.date) {
+        return 1;
+    }
+    if (a.frontmatter.date > b.frontmatter.date) {
+        return -1;
+    }
+    return 0;
+});
 ---
 
 <BaseLayout page_title={page_title}>
     <h1>Blogs</h1>
-    <p>This is where I will post about my journey learning Astro.</p>
+    {
+        all_posts
+            .slice(0, 3)
+            .map((post: any) => (
+                <Blogpost
+                    url={post.url}
+                    title={post.frontmatter.title}
+                    date={post.frontmatter.date}
+                    description={post.frontmatter.description}
+                />
+            ))
+    }
 </BaseLayout>
