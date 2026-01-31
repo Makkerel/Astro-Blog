@@ -1,4 +1,4 @@
-# 🚀 Project Structure
+# Project Structure
 ```text
 /
 ├── public/
@@ -48,7 +48,7 @@
 *   **`src/scripts/`**: For client-side JavaScript that may be needed for interactive elements.
 *   **`public/`**: For static assets that should not be processed by Astro, such as `favicon.svg`.
 
-## 🧞 Commands
+## Commands
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
