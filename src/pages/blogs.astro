@@ -21,15 +21,13 @@ all_posts.sort((a: any, b: any) => {
 <BaseLayout page_title={page_title}>
     <h1>Blogs</h1>
     {
-        all_posts
-            .slice(0, 3)
-            .map((post: any) => (
-                <Blogpost
-                    url={post.url}
-                    title={post.frontmatter.title}
-                    date={post.frontmatter.date}
-                    description={post.frontmatter.description}
-                />
-            ))
+        all_posts.map((post: any) => (
+            <Blogpost
+                url={post.url}
+                title={post.frontmatter.title}
+                date={post.frontmatter.date}
+                description={post.frontmatter.description}
+            />
+        ))
     }
 </BaseLayout>
