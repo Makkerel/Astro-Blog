@@ -2,6 +2,7 @@
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 import favicon from "../assets/happy_face.png";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 const { page_title } = Astro.props;
@@ -23,6 +24,7 @@ const { page_title } = Astro.props;
             rel="stylesheet"
         />
         <title>{page_title}</title>
+        <ClientRouter />
     </head>
     <body>
         <Header />

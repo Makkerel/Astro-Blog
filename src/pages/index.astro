@@ -60,17 +60,19 @@ all_posts.sort((a: any, b: any) => {
 </style>
 
 <script>
-    const image_container = document.getElementById("img_container");
-    const images = document.querySelectorAll(".img_list");
-    let currentIndex = 0;
-    image_container!.addEventListener("click", () => {
-        let nextIndex;
-        do {
-            nextIndex = Math.floor(Math.random() * images.length);
-        } while (nextIndex === currentIndex);
-        images[currentIndex].classList.remove("active");
-        images[nextIndex].classList.add("active");
-        currentIndex = nextIndex;
+    document.addEventListener("astro:page-load", () => {
+        const image_container = document.getElementById("img_container");
+        const images = document.querySelectorAll(".img_list");
+        let currentIndex = 0;
+        image_container!.addEventListener("click", () => {
+            let nextIndex;
+            do {
+                nextIndex = Math.floor(Math.random() * images.length);
+            } while (nextIndex === currentIndex);
+            images[currentIndex].classList.remove("active");
+            images[nextIndex].classList.add("active");
+            currentIndex = nextIndex;
+        });
     });
 </script>
 
