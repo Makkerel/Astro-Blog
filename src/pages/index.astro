@@ -3,18 +3,19 @@ import BaseLayout from "../layouts/baseLayout.astro";
 import Link from "../components/link.astro";
 import Blogpost from "../components/blogpost.astro";
 import { Image } from "astro:assets";
-import happy_man from "../assets/stick_figures/Happy guy.png";
-import sad_man from "../assets/stick_figures/Sad guy.png";
-import angry_man from "../assets/stick_figures/Angry guy.png";
-import scared_man from "../assets/stick_figures/Scared guy.png";
-import wow_man from "../assets/stick_figures/Wow guy.png";
-import ble_man from "../assets/stick_figures/BLE guy.png";
+import type { ImageMetadata } from "astro";
 import "../styles/global.css";
 const page_title = "Welcome";
 
 const all_posts = Object.values(
     import.meta.glob("./posts/*.mdx", { eager: true }),
 );
+
+const stick_figures = import.meta.glob<{ default: ImageMetadata }>(
+    "../assets/stick_figures/*.png",
+);
+
+const stick_images = Object.values(stick_figures);
 
 all_posts.sort((a: any, b: any) => {
     if (a.frontmatter.date < b.frontmatter.date) {
@@ -108,15 +109,21 @@ all_posts.sort((a: any, b: any) => {
             Click Me!
             <div id="img_container">
                 <Image
-                    src={happy_man}
-                    alt="happy man"
+                    src={stick_images[0]()}
+                    alt="begin_image"
                     class="img_list active"
                 />
-                <Image src={sad_man} alt="sad man" class="img_list" />
-                <Image src={angry_man} alt="angry man" class="img_list" />
-                <Image src={scared_man} alt="scared man" class="img_list" />
-                <Image src={wow_man} alt="wow man" class="img_list" />
-                <Image src={ble_man} alt="ble man" class="img_list" />
+                {
+                    stick_images
+                        .slice(1)
+                        .map((image) => (
+                            <Image
+                                src={image()}
+                                alt="stick man"
+                                class="img_list"
+                            />
+                        ))
+                }
             </div>
         </div>
     </div>
