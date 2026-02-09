@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/baseLayout.astro";
 import { Image } from "astro:assets";
 import Face from "../assets/clown_face.jpg";
 import Link from "../components/link.astro";
+import Details from "../components/details.astro";
 import "../styles/global.css";
 
 const page_title = "About Me";
@@ -60,7 +61,7 @@ const page_title = "About Me";
             <h3>Current Interests</h3>
             <p>
                 Moral Philosophy<br />
-                OpenGL <br />
+                Drawing <br />
             </p>
         </div>
         <div class="favorites grid-item">
@@ -73,6 +74,17 @@ const page_title = "About Me";
             </p>
         </div>
     </div>
+    <h2>What I'm Doing Right Now</h2>
+    <p>
+        I'm current reading 2 books <Link
+            link="https://craftinginterpreters.com/contents.html"
+            name="Crafting Interpreters"
+        /> by Robert Nystrom and Crying in H Mart by Michelle Zauner. I just recently
+        got Plat in TFT. I'm attemping the <Link
+            link="https://drawabox.com/lesson/250cylinders"
+            name="250 Cylinder Challenge"
+        />.
+    </p>
     <h2>My Programming Journey</h2>
     <p>
         My first exposure with programming was probably Scratch around the 6th
@@ -93,51 +105,57 @@ const page_title = "About Me";
     <h2>Recommendations</h2>
     <p>
         These are some things I recommend in no particular order. I don't really
-        watch movies or TV shows though
+        watch movies or TV shows though so my opinions may not be reliable.
     </p>
-    <h3>Books</h3>
-    <p>
-        Fundamentals of Ethics by Russ Shafer-Landau
-        <br />Operating Systems: Three Easy Pieces by Remzi H. Arpaci-Dusseau
-        and Andrea C. Arpaci-Dusseau
-        <br />Stay True by Hua Tsu
-        <br />No No Boy by John Okada
-        <br />Where the Red Fern Grows by Wilson Rawls
-    </p>
-    <h3>Manga</h3>
-    <p>
-        Grand Blue by Kenji Inoue
-        <br />Kengan Asura by Yabako Sandrovich
-        <br />Dungeon Meshi by Kui Ryouko
-        <br />The Case Study of Vanitas by Mochizuki Jun
-        <br />The Apothecary Diaries by Hyuuga Natsu, Nanao Itsuki, Nekokurage
-    </p>
-    <h3>Movies</h3>
-    <p>
-        Margin Call
-        <br />Kpop Demon Hunters
-    </p>
-    <h3>TV Shows</h3>
-    <p>
-        Arcane
-        <br /> Severance
-        <br /> House M.D.
-        <br /> Mythbusters
-    </p>
-    <h3>Websites</h3>
-    <p>
-        Some maybe useful websites.
-        <br />
-        <Link link="https://annas-archive.org/" name="Anna's Archive:" />
-        <span> Massive Digital Library</span>
-        <br />
-        <Link link="https://wotaku.wiki/" name="Wotaku Wiki:" />
-        <span> Index for all things anime</span>
-        <br />
-        <Link link="https://coolors.co/" name="Coolor Co:" />
-        <span> Allows you to generate color schemes</span>
-        <br />
-        <Link link="https://devhints.io/" name="Dev Hints:" />
-        <span> Some useful cheatsheets for devs</span>
-    </p>
+    <Details name="Books">
+        <p>
+            Fundamentals of Ethics by Russ Shafer-Landau
+            <br />Operating Systems: Three Easy Pieces by Remzi H.
+            Arpaci-Dusseau and Andrea C. Arpaci-Dusseau
+            <br />Stay True by Hua Tsu
+            <br />No No Boy by John Okada
+            <br />Where the Red Fern Grows by Wilson Rawls
+        </p>
+    </Details>
+    <Details name="Manga">
+        <p>
+            Grand Blue by Kenji Inoue
+            <br />Kengan Asura by Yabako Sandrovich
+            <br />Dungeon Meshi by Kui Ryouko
+            <br />The Case Study of Vanitas by Mochizuki Jun
+            <br />The Apothecary Diaries by Hyuuga Natsu, Nanao Itsuki,
+            Nekokurage
+        </p>
+    </Details>
+    <Details name="Movies">
+        <p>
+            Margin Call
+            <br />Kpop Demon Hunters
+        </p>
+    </Details>
+    <Details name="TV Shows">
+        <p>
+            Arcane
+            <br /> Severance
+            <br /> House M.D.
+            <br /> Mythbusters
+        </p>
+    </Details>
+    <Details name="Websites">
+        <p>
+            Some maybe useful websites.
+            <br />
+            <Link link="https://annas-archive.org/" name="Anna's Archive:" />
+            <span> Massive Digital Library</span>
+            <br />
+            <Link link="https://wotaku.wiki/" name="Wotaku Wiki:" />
+            <span> Index for all things anime</span>
+            <br />
+            <Link link="https://coolors.co/" name="Coolor Co:" />
+            <span> Allows you to generate color schemes</span>
+            <br />
+            <Link link="https://devhints.io/" name="Dev Hints:" />
+            <span> Some useful cheatsheets for devs</span>
+        </p>
+    </Details>
 </BaseLayout>
