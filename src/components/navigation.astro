@@ -10,15 +10,20 @@ import "../styles/global.css";
         font-weight: 500;
         text-transform: capitalize;
         color: var(--text-color);
-        transition: filter 0.4s ease-out;
-        filter: brightness(100%);
+        opacity: 80%;
+        transition:
+            opacity 0.3s ease-out,
+            filter 0.3s ease-out;
     }
 
     a:hover {
-        filter: brightness(150%);
+        opacity: 100%;
+        filter: brightness(110%);
     }
 </style>
 
 <nav class="nav_links">
-    <a href="/about/">About</a><a href="/blogs/">Blog</a><a href="/tags/">Tags</a>
+    <a href="/about/">About</a><a href="/blogs/">Blog</a><a href="/tags/"
+        >Tags</a
+    >
 </nav>
