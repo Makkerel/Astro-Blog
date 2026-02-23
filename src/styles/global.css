@@ -12,7 +12,7 @@
     /*#201a23*/
     --main-color: light-dark(#e6e8e6ff, #171718);
     --text-color: light-dark(#231f20ff, #e0e0e0);
-    --accent-color: light-dark(#006992, #006992);
+    --accent-color: light-dark(#006992, #0075a3);
     --secondary-color: light-dark(#717171, #717171);
     --tertiary-color: light-dark(#00c6b5ff, #cdcdcd);
 }

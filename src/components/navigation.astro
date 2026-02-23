@@ -3,28 +3,22 @@ import "../styles/global.css";
 ---
 
 <style>
-    .nav_links a {
+    a {
         margin: 0 10px;
         text-decoration: none;
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 500;
         text-transform: capitalize;
         color: var(--text-color);
+        transition: filter 0.4s ease-out;
+        filter: brightness(100%);
     }
 
-    @media screen and (min-width: 636px) {
-        .nav_links {
-            width: auto;
-            background: none;
-        }
-
-        .nav_links a {
-        }
+    a:hover {
+        filter: brightness(150%);
     }
 </style>
 
 <nav class="nav_links">
-    <a href="/about/">About</a>
-    <a href="/blogs/">Blog</a>
-    <a href="/tags/">Tags</a>
+    <a href="/about/">About</a><a href="/blogs/">Blog</a><a href="/tags/">Tags</a>
 </nav>
