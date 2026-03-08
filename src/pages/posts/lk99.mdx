@@ -7,23 +7,16 @@ date: 2025-03-18
 tags: ["Meta", "Science", "Life"]
 ---
 
+import Title from '../../components/title.astro'
 import LK99_Pellet from "../../assets/LK99/LK-99_pellet.png"
 import LK99_Graph from "../../assets/LK99/LK-99Graph.png"
 import Nature from "../../assets/LK99/Nature.jpg"
 import { Image } from "astro:assets"
 import Link from '../../components/link.astro'
-import SBHacks from "../../assets/sbhacks.png"
 
-<div style="text-align:center;">
-    <Image
-        src={LK99_Pellet}
-        alt="LK-99"
-        layout="constrained"
-        width="{600}"
-        style="margin: auto"
-    />
-    Image by Hyun-Tak Kim
-</div>
+<Title title={frontmatter.title} image={LK99_Pellet}
+description={frontmatter.description} date={frontmatter.date} img_d="Image by Hyun-Tak Kim"/>
+
 Around midnight on Friday, July 21st, 2023 a paper was uploaded to
 <Link link="https://arxiv.org/" name="Arxiv"/> an online archive of research
 papers. I was probably sleeping at the time and an event like this was
@@ -111,7 +104,7 @@ two people, while both being the first authors or the primary people behind
 the paper, were not the ones who uploaded the paper. The situation is
 strange as there were two papers uploaded to Arxiv about LK-99 but the
 papers were completely different. The first paper that caused the initial
-hype was uploaded by Young-Wan Kwon while the 
+hype was uploaded by Young-Wan Kwon while the
 <Link link="https://arxiv.org/abs/2307.12037v1" name="second paper"/> uploaded
 by Hyuntak Kim doesn&#39;t even include Kwon as an author.
 
@@ -134,7 +127,7 @@ alt="LK-99 Graph"
 layout="constrained"
 width="{600}"/>
 
-According to Professor Philip Moriarty from the YouTube channel 
+According to Professor Philip Moriarty from the YouTube channel
 <Link link="https://www.youtube.com/watch?v=zl-AgmoZ5mo"name="Sixty Symbols" /> the
 presentation of data is almost laughable. In the graph above the units
 on the y-axis are too big to show 0 resistivity of LK-99. He pointed out how
@@ -164,7 +157,7 @@ needs edits. Simple right?
 
 This definition is on the surface reasonable but there is no clear ruleset
 for peer review. The matter is instead decided by the journal that would
-publish the paper. In 
+publish the paper. In
 <Link link="https://www.nature.com/nature/for-authors/editorial-criteria-and-processes" name="Nature"/> a
 well known scientific journal, the editors will first pick the papers that
 seem to be most intriguing, and then once selected the editor will choose
@@ -181,7 +174,7 @@ and arbitrary.
     alt="Nature Diagram"
     layout="constrained"
     width="{600}"/>
-According to a 
+According to a
 <Link link="https://doi.org/10.1186/s41073-020-00092-1" name="study on peer review"/> by
 Jonathan P. Tennant and Tony Ross-Hellauer there is very little
 scientific research done on peer review. The paper concludes that many
@@ -193,7 +186,7 @@ to change practically anything they want. The situation worsens as the job
 of peer review is extremely undervalued and scientists that do the reviews
 may not have the baseline skills necessary to conduct a proper review.
 In fact, LK-99 may be a demonstration of the issues with the inconsistency
-of peer review. According to the 
+of peer review. According to the
 <Link link="https://n.news.naver.com/article/366/0000920152" name="Sukbae Lee"/> one
 of the main authors did try to publish their findings in Nature but were
 required to publish in another specialized journal. Lee then subsequently

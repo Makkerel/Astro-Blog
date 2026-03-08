@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+const { title, image, description, date, img_d } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<style>
+    .introduction {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .image {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        text-align: center;
+        flex: 2;
+    }
+
+    .information {
+        flex: 3;
+    }
+
+    time {
+        opacity: 80%;
+        padding: 1rem;
+    }
+    h1 {
+        outline: none;
+    }
+</style>
+
+<div class="introduction">
+    <div class="image">
+        <Image
+            src={image}
+            alt="Sbhacks img"
+            layout="constrained"
+            width={600}
+            style="margin:auto"
+        />
+        {img_d}
+    </div>
+    <div class="information">
+        <h1>{title}</h1>
+        <time datetime={date}>{date.toString().slice(0, 10)}</time>
+        <p>{description}</p>
+    </div>
+</div>

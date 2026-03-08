@@ -2,18 +2,18 @@
 layout: ../../layouts/markdownLayout.astro
 title:  Going to a Hackathon
 author: Kevin Zhao
-description: "My First Hackathon Experience"
+description: "My first hackathon experience that went alright"
 date: 2023-01-16
 tags: ["Programming", "Review", "Life"]
 ---
 import Link from '../../components/link.astro'
 import { Image } from "astro:assets"
 import SBHacks from "../../assets/sbhacks.png"
+import Title from '../../components/title.astro'
 
-<div style="text-align:center;">
-<Image src={SBHacks} alt="Sbhacks img" layout="constrained" width={600} style="margin:auto"/>
-Image by SB Hacks XI Team
-</div>
+<Title title={frontmatter.title} image={SBHacks}
+description={frontmatter.description} date={frontmatter.date} img_d = "Image by SBHacks"/>
+
 I went to <Link link="https://sb-hacks-xi.devpost.com/?ref_feature=challenge" name="SBHacks XI"/>
 which was the first ever hackathon have ever participated in. I went
 with 3 other guys and that was my team for the hackathon. They all

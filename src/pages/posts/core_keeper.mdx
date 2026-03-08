@@ -7,11 +7,13 @@ date: 2023-01-03
 tags: ["Video Games", "Review"]
 ---
 
+import Title from '../../components/title.astro'
 import Link from '../../components/link.astro'
 import { Image } from "astro:assets";
 import CoreKeeper from "../../assets/CoreKeeper/core_keeper.jpg"
 
-<Image src={CoreKeeper} alt="Core Keeper Img" layout="full-width"/>
+<Title title={frontmatter.title} image={CoreKeeper}
+description={frontmatter.description} date={frontmatter.date} img_d="Image from Steam" />
 Core Keeper is a somewhat new game that was fully released on August 27,
 2024. The game is a available on <Link link="https://store.steampowered.com/app/1621690/Core_Keeper/" name="Core Keeper"/>
 and is a top down survival game that is similar in genre to games like Terraria.
