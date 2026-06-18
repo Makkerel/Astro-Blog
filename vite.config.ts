@@ -10,6 +10,7 @@ export default defineConfig({
     options: { typeAware: true, typeCheck: true },
   },
   fmt: {
+    proseWrap: "always",
     ignorePatterns: [],
   },
 });

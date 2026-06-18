@@ -1,20 +1,32 @@
 ---
-import "../styles/global.css";
-const { link, name } = Astro.props;
+const { href, link, name, class: className } = Astro.props;
+const url = href ?? link;
+const external = /^https?:\/\//.test(url);
 ---
 
 <style>
     a {
         color: var(--accent-color);
     }
+
     a:hover {
         filter: brightness(150%);
     }
-    a::after {
-        position: relative;
+
+    a[data-external]::after {
         content: "↗";
         font-size: 60%;
+        position: relative;
         top: -0.2rem;
     }
 </style>
-<a href={link} target="_blank" rel="noopener noreferrer">{name}</a>
+
+<a
+    href={url}
+    class={className}
+    data-external={external || undefined}
+    target={external ? "_blank" : undefined}
+    rel={external ? "noopener noreferrer" : undefined}
+>
+    <slot>{name}</slot>
+</a>

@@ -5,7 +5,7 @@ catalog:
 overrides:
   vite: "catalog:"
   vitest: "catalog:"
-minimumReleaseAge: 10
+minimumReleaseAge: 1440
 peerDependencyRules:
   allowAny:
     - vite
