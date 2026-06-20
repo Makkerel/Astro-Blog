@@ -1,50 +1,59 @@
 ---
-import "../styles/global.css";
-const { title, image, description, date, img_d } = Astro.props;
 import { Image } from "astro:assets";
+
+const { title, image, description, date, img_d, width = 1000 } = Astro.props;
 ---
 
 <style>
     .introduction {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        margin-bottom: 1rem;
     }
 
-    .image {
-        margin-top: 1rem;
-        margin-left: 1rem;
+    .hero-figure {
+        margin: 0;
         text-align: center;
-        flex: 2;
     }
 
-    .information {
-        flex: 3;
+    figcaption {
+        font-size: 0.85rem;
+    }
+
+    .information h1 {
+        font-family: var(--font-exo-2), sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        outline: none;
     }
 
     time {
-        opacity: 80%;
-        padding: 1rem;
+        font-family: var(--font-atkinson), sans-serif;
+        display: block;
+        font-size: 0.8rem;
+        opacity: 70%;
+        padding: 0.25rem 1rem 0;
     }
-    h1 {
-        outline: none;
+
+    .dek {
+        padding: 0 1rem;
+        max-width: 65ch;
+        font-size: 1.05rem;
+        line-height: 1.5;
     }
 </style>
 
 <div class="introduction">
-    <div class="image">
+    <figure class="hero-figure">
         <Image
             src={image}
             alt="Sbhacks img"
             layout="constrained"
-            width={600}
-            style="margin:auto"
+            width={width}
         />
-        {img_d}
-    </div>
+        {img_d && <figcaption>{img_d}</figcaption>}
+    </figure>
     <div class="information">
         <h1>{title}</h1>
         <time datetime={date}>{date.toString().slice(0, 10)}</time>
-        <p>{description}</p>
+        <p class="dek">{description}</p>
     </div>
 </div>

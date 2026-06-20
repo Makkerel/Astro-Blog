@@ -7,7 +7,6 @@ date: 2023-01-16
 tags: ["Programming", "Review", "Life"]
 ---
 
-import { Image } from "astro:assets";
 import SBHacks from "../../assets/sbhacks.png";
 import Title from "../../components/title.astro";
 import Link from "../../components/link.astro";
@@ -20,6 +19,7 @@ export const components = { a: Link };
   description={frontmatter.description}
   date={frontmatter.date}
   img_d="Image by SBHacks"
+  width={600}
 />
 
 I went to [SBHacks XI](https://sb-hacks-xi.devpost.com/?ref_feature=challenge) which was the first

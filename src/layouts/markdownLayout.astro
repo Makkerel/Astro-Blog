@@ -1,10 +1,16 @@
 ---
 import BaseLayout from "./baseLayout.astro";
-import "../styles/global.css";
-const { frontmatter } = Astro.props;
+import TableOfContents from "../components/tableOfContents.astro";
+
+const { frontmatter, headings = [] } = Astro.props;
 ---
 
 <style>
+    .post-content :global(h2),
+    .post-content :global(h3) {
+        scroll-margin-top: 4rem;
+    }
+
     .tags {
         display: flex;
         padding: 1rem;
@@ -24,15 +30,20 @@ const { frontmatter } = Astro.props;
 </style>
 
 <BaseLayout page_title={frontmatter.title}>
-    <slot />
-    <h3>Tags</h3>
-    <div class="tags">
-        {
-            frontmatter.tags.map((tag: string) => (
-                <a href="/blogs" class="tag">
-                    {tag}
-                </a>
-            ))
-        }
+    <article class="post-content">
+        <slot />
+    </article>
+    <TableOfContents headings={headings} />
+    <div class="post-footer">
+        <h3>Tags</h3>
+        <div class="tags">
+            {
+                frontmatter.tags.map((tag: string) => (
+                    <a href="/blogs" class="tag">
+                        {tag}
+                    </a>
+                ))
+            }
+        </div>
     </div>
 </BaseLayout>

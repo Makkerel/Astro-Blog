@@ -1,0 +1,99 @@
+---
+interface Heading {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
+interface Props {
+    headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{
+    tocHeadings.length > 0 && (
+        <aside class="toc">
+            <nav aria-label="Table of contents">
+                <p class="toc-label">On this page</p>
+                <ul class="toc-list">
+                    {tocHeadings.map((heading) => (
+                        <li
+                            class:list={[
+                                "toc-item",
+                                heading.depth === 3 && "toc-item-nested",
+                            ]}
+                        >
+                            <a href={`#${heading.slug}`}>{heading.text}</a>
+                        </li>
+                    ))}
+                </ul>
+                <a href="#" class="toc-back">Back to top</a>
+            </nav>
+        </aside>
+    )
+}
+
+<style>
+    .toc {
+        display: none;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .toc-label {
+        font-weight: bold;
+        font-size: 0.9rem;
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--secondary-color);
+    }
+
+    .toc-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .toc-item {
+        padding: 0.25rem 0;
+    }
+
+    .toc-item-nested {
+        padding-left: 0.75rem;
+        font-size: 0.95em;
+        opacity: 85%;
+    }
+
+    .toc-item a,
+    .toc-back {
+        color: var(--secondary-color);
+        transition: color 0.2s ease;
+    }
+
+    .toc-item a:hover,
+    .toc-back:hover {
+        color: var(--accent-color);
+    }
+
+    .toc-back {
+        display: block;
+        margin-top: 0.75rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--secondary-color);
+    }
+
+    @media (min-width: 1400px) {
+        .toc {
+            display: block;
+            position: fixed;
+            top: 6rem;
+            left: calc((100vw + 1000px) / 2 + 1rem);
+            width: 180px;
+            max-height: calc(100vh - 7rem);
+            overflow-y: auto;
+        }
+    }
+</style>

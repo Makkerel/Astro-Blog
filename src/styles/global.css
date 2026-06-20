@@ -19,9 +19,16 @@
 
 html {
   background-color: var(--main-color);
-  font-family: "Share Tech", sans-serif;
+  font-family: var(--font-share-tech), sans-serif;
   font-size: 22px;
   color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -30,9 +37,14 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  line-height: 1.5;
+  line-height: 1.6;
   outline: 1px solid var(--secondary-color);
   color: var(--text-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 h1,
@@ -49,21 +61,23 @@ h6 {
 }
 
 h1 {
-  font-size: 70px;
+  font-size: clamp(2.25rem, 10vw, 3.33rem);
   line-height: 1.2;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: clamp(1.5rem, 6vw, 1.9rem);
 }
 
 h3 {
-  font-size: 25px;
+  font-size: clamp(1.125rem, 4vw, 1.19rem);
 }
 
 p {
   margin: 0;
   padding: 1rem;
+  line-height: 1.6;
+  font-family: var(--font-atkinson), sans-serif;
 }
 
 a {
