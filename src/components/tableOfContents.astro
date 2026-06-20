@@ -67,15 +67,25 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
         opacity: 85%;
     }
 
+    .toc-item a {
+        display: block;
+        border-left: 2px solid transparent;
+        padding-left: 0.5rem;
+    }
+
     .toc-item a,
     .toc-back {
         color: var(--secondary-color);
-        transition: color 0.2s ease;
+        transition: color 0.2s ease, border-color 0.2s ease;
     }
 
     .toc-item a:hover,
     .toc-back:hover {
         color: var(--accent-color);
+    }
+
+    .toc-item a.active {
+        border-left-color: var(--accent-color);
     }
 
     .toc-back {
@@ -97,3 +107,113 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
         }
     }
 </style>
+
+<script>
+    const HEADER_OFFSET = 150;
+    const CLICK_LOCK_MS = 500;
+
+    let cleanup: (() => void) | null = null;
+
+    function initTocSpy() {
+        cleanup?.();
+
+        const toc = document.querySelector(".toc");
+        if (!toc) {
+            cleanup = null;
+            return;
+        }
+
+        const links = toc.querySelectorAll<HTMLAnchorElement>(".toc-item a");
+        if (!links.length) {
+            cleanup = null;
+            return;
+        }
+
+        const headings = [...links]
+            .map((link) => {
+                const id = link.getAttribute("href")?.slice(1);
+                return id ? document.getElementById(id) : null;
+            })
+            .filter((heading): heading is HTMLElement => heading !== null);
+
+        if (!headings.length) {
+            cleanup = null;
+            return;
+        }
+
+        let activeId = "";
+        let clickLock = false;
+        let clickLockTimer: ReturnType<typeof setTimeout> | undefined;
+
+        function setActive(id: string | null) {
+            if (id === activeId) return;
+            activeId = id ?? "";
+
+            for (const link of links) {
+                const isActive =
+                    id !== null && link.getAttribute("href") === `#${id}`;
+                link.classList.toggle("active", isActive);
+                if (isActive) {
+                    link.setAttribute("aria-current", "location");
+                } else {
+                    link.removeAttribute("aria-current");
+                }
+            }
+        }
+
+        function atPageBottom() {
+            return (
+                window.innerHeight + window.scrollY >=
+                document.documentElement.scrollHeight
+            );
+        }
+
+        function updateActive() {
+            if (clickLock) return;
+
+            if (atPageBottom()) {
+                setActive(headings[headings.length - 1].id);
+                return;
+            }
+
+            let current: HTMLElement | null = null;
+            for (const heading of headings) {
+                if (heading.getBoundingClientRect().top <= HEADER_OFFSET) {
+                    current = heading;
+                }
+            }
+
+            setActive(current?.id ?? null);
+        }
+
+        function onTocClick(event: Event) {
+            const link = (event.target as Element).closest(".toc-item a");
+            if (!link) return;
+
+            const id = link.getAttribute("href")?.slice(1);
+            if (!id) return;
+
+            clickLock = true;
+            clearTimeout(clickLockTimer);
+            setActive(id);
+            clickLockTimer = setTimeout(() => {
+                clickLock = false;
+                updateActive();
+            }, CLICK_LOCK_MS);
+        }
+
+        toc.addEventListener("click", onTocClick);
+        window.addEventListener("scroll", updateActive, { passive: true });
+        updateActive();
+
+        cleanup = () => {
+            toc.removeEventListener("click", onTocClick);
+            window.removeEventListener("scroll", updateActive);
+            clearTimeout(clickLockTimer);
+            setActive(null);
+        };
+    }
+
+    document.addEventListener("astro:page-load", initTocSpy);
+    initTocSpy();
+</script>
