@@ -10,6 +10,7 @@ tags: ["Programming", "Review", "Life"]
 import SBHacks from "../../assets/sbhacks.png";
 import Title from "../../components/title.astro";
 import Link from "../../components/link.astro";
+import Tags from "../../components/tags.astro";
 
 export const components = { a: Link };
 
@@ -81,3 +82,5 @@ try to go to another hackathon in the future. I thought it was gonna be constant
 hours but it was actually much more chill. We coded and talked and learned all at the same time. I
 highly recommend SBHacks to anyone that may be looking to participate in a hackathon as well. The
 hosts were great and the environment welcoming. All I can say is 10/10 would hack again.
+
+<Tags tags={frontmatter.tags} />

@@ -10,23 +10,6 @@ const { frontmatter, headings = [] } = Astro.props;
     .post-content :global(h3) {
         scroll-margin-top: 4rem;
     }
-
-    .tags {
-        display: flex;
-        padding: 1rem;
-        gap: 1rem;
-    }
-
-    .tag {
-        font-size: 150%;
-        padding: 0.5rem;
-        border: 1px solid var(--secondary-color);
-        transition: filter 0.3s ease;
-    }
-
-    .tag:hover {
-        filter: brightness(150%);
-    }
 </style>
 
 <BaseLayout page_title={frontmatter.title}>
@@ -34,16 +17,4 @@ const { frontmatter, headings = [] } = Astro.props;
         <slot />
     </article>
     <TableOfContents headings={headings} />
-    <div class="post-footer">
-        <h3>Tags</h3>
-        <div class="tags">
-            {
-                frontmatter.tags.map((tag: string) => (
-                    <a href="/blogs" class="tag">
-                        {tag}
-                    </a>
-                ))
-            }
-        </div>
-    </div>
 </BaseLayout>

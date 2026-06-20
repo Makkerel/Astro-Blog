@@ -9,6 +9,7 @@ tags: ["Video Games", "Review"]
 
 import Title from "../../components/title.astro";
 import Link from "../../components/link.astro";
+import Tags from "../../components/tags.astro";
 import CoreKeeper from "../../assets/CoreKeeper/core_keeper.jpg";
 
 export const components = { a: Link };
@@ -113,3 +114,5 @@ get through the game. The builds by themselves can sustain some people and since
 support there are truly infinite possibilities with this game. So my answer to this question is Yes
 if you have friend that can play with you and if you are by yourself only if you can look past the
 tedium that I have just described or like to play with mods.
+
+<Tags tags={frontmatter.tags} />

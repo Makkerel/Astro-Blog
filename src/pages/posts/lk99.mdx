@@ -13,6 +13,7 @@ import LK99_Pellet from "../../assets/LK99/LK-99_pellet.png";
 import LK99_Graph from "../../assets/LK99/LK-99Graph.png";
 import Nature from "../../assets/LK99/Nature.jpg";
 import Link from "../../components/link.astro";
+import Tags from "../../components/tags.astro";
 
 export const components = { a: Link };
 
@@ -179,3 +180,5 @@ is to draw attention to the fact that there are holes in the current established
 not be ignored. Science is an iterative process and that includes the way science is conducted
 itself. Hopefully, in the future, the process will be so refined that when there is a new LK-99
 people won't have to be skeptical and instead simply be ecstatic.
+
+<Tags tags={frontmatter.tags} />

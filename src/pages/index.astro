@@ -57,9 +57,13 @@ all_posts.sort((a: any, b: any) => {
 <script>
     document.addEventListener("astro:page-load", () => {
         const image_container = document.getElementById("img_container");
+        if(!image_container)
+        {
+          return;
+        }
         const images = document.querySelectorAll(".img_list");
         let currentIndex = 0;
-        image_container!.addEventListener("click", () => {
+        image_container.addEventListener("click", () => {
             let nextIndex;
             do {
                 nextIndex = Math.floor(Math.random() * images.length);

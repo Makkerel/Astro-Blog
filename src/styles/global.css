@@ -53,6 +53,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-exo-2), sans-serif;
   outline: 1px solid var(--secondary-color);
   padding-left: 1rem;
   padding-right: 1rem;
@@ -87,6 +88,10 @@ a {
 
 main {
   flex: 1;
+}
+
+ul {
+  margin: 0;
 }
 
 pre {

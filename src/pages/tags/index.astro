@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/baseLayout.astro";
 const page_title = "Tag Index";
 
 const all_posts = Object.values(
-    import.meta.glob("../posts/*.md", { eager: true }),
+    import.meta.glob("../posts/*.mdx", { eager: true }),
 );
 const tags = [
     ...new Set(all_posts.map((post: any) => post.frontmatter.tags).flat()),
