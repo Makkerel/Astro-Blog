@@ -1,0 +1,174 @@
+---
+interface ColorEntry {
+    name: string;
+    variable: string;
+    light: string;
+    dark: string;
+    description: string;
+    sample?: boolean;
+}
+
+const colors: ColorEntry[] = [
+    {
+        name: "Main",
+        variable: "--main-color",
+        light: "#e6e8e6",
+        dark: "#171718",
+        description: "Page background and primary surface behind all content.",
+    },
+    {
+        name: "Text",
+        variable: "--text-color",
+        light: "#231f20",
+        dark: "#e0e0e0",
+        description: "Default body and heading text.",
+        sample: true,
+    },
+    {
+        name: "Accent",
+        variable: "--accent-color",
+        light: "#006992",
+        dark: "#0075a3",
+        description:
+            "Links, table of contents highlights, and interactive emphasis.",
+    },
+    {
+        name: "Secondary",
+        variable: "--secondary-color",
+        light: "#717171",
+        dark: "#717171",
+        description: "Borders, outlines, muted UI text, and structural lines.",
+    },
+    {
+        name: "Tertiary",
+        variable: "--tertiary-color",
+        light: "#00c6b5",
+        dark: "#00c6b5",
+        description: "Supplementary accent for occasional emphasis.",
+    },
+];
+---
+
+<ul class="palette">
+    {
+        colors.map((color) => (
+            <li class="color-card">
+                <div class="swatches" aria-hidden="true">
+                    <div
+                        class="swatch live"
+                        style={
+                            color.sample
+                                ? "background-color: var(--main-color)"
+                                : `background-color: var(${color.variable})`
+                        }
+                    >
+                        {color.sample && (
+                            <span style={`color: var(${color.variable})`}>
+                                Aa
+                            </span>
+                        )}
+                    </div>
+                    <div class="swatch-pair">
+                        <div
+                            class="swatch"
+                            style={`background-color: ${color.light}`}
+                            title="Light"
+                        />
+                        <div
+                            class="swatch"
+                            style={`background-color: ${color.dark}`}
+                            title="Dark"
+                        />
+                    </div>
+                </div>
+                <div class="color-meta">
+                    <strong>{color.name}</strong>
+                    <p>{color.description}</p>
+                    <code>{color.variable}</code>
+                    <p class="color-hex">
+                        {color.light === color.dark
+                            ? color.light
+                            : `${color.light} / ${color.dark}`}
+                    </p>
+                </div>
+            </li>
+        ))
+    }
+</ul>
+
+<style>
+    .palette {
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+        margin: 0;
+        list-style: none;
+    }
+
+    .color-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        outline: 1px solid var(--secondary-color);
+        padding: 1rem;
+    }
+
+    .swatches {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .swatch-pair {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .swatch {
+        border: 1px solid var(--secondary-color);
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .swatch.live {
+        width: 5rem;
+        height: 5rem;
+        display: grid;
+        place-items: center;
+    }
+
+    .swatch.live span {
+        font:
+            bold 2rem var(--font-atkinson),
+            sans-serif;
+    }
+
+    .color-meta strong {
+        display: block;
+        font-family: var(--font-exo-2), sans-serif;
+        font-size: 1.25rem;
+    }
+
+    .color-meta code {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--secondary-color);
+    }
+
+    .color-meta p {
+        padding: 0;
+        margin: 0.5rem 0;
+    }
+
+    .color-hex {
+        font-family: var(--font-share-tech), monospace;
+        font-size: 0.8rem;
+        padding-top: 0.25rem;
+    }
+
+    @media (max-width: 500px) {
+        .color-card {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

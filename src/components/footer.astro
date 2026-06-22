@@ -1,4 +1,5 @@
 ---
+import Link from "./link.astro";
 import { Image } from "astro:assets";
 import GithubSVG from "../assets/github-brands-solid.svg";
 import "../styles/global.css";
@@ -44,5 +45,8 @@ import "../styles/global.css";
             /></a
         >
     </span>
-    Colophon and Acknowledgements
+    <Link
+        link="../collophon"
+        name="Colophon, Acknowledgements, and Licensing"
+    />
 </footer>

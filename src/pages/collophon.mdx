@@ -1,0 +1,115 @@
+---
+layout: ../layouts/markdownLayout.astro
+title: Colophon and Acknowledgements
+last_update: 2026-06-21
+---
+
+import Link from "../components/link.astro";
+import ColorPalette from "../components/colorPalette.astro";
+export const components = { a: Link };
+
+## Colophon, Acknowledgements, and Licensing
+
+{/* prettier-ignore */}
+<time style={{ fontSize: "0.8rem", opacity: 0.7, padding: "0 1rem 0" }} datetime={frontmatter.last_update}>Last Updated: {frontmatter.last_update.split("T")[0]}</time>
+
+This page mostly describes the technical details about how the website was designed. It also
+contains some acknowledgement for those that helped me and also some basic licensing information.
+
+## Tech Stuff
+
+I decided to use [Astro](https://astro.build/) as the general framework with
+[MDX](https://mdxjs.com/) for most of the content pages. I decided on it for the ease of use and
+simplicity that they provide in general but with the added benefit of being powerful enough for
+complex things when I need them to be.
+
+I had already decided to host this website on
+[Cloudflare](https://www.cloudflare.com/products/workers/) before Astro was acquired by them for no
+particular reason other than that they seem to have a better free tier than
+[Github Pages](https://docs.github.com/en/pages) and I generally heard good things about them. Note
+I have not tried other hosting service so take this opinion with a grain of salt.
+
+I started to use [Vite+](https://viteplus.dev/) for managing the project. It's promise of a unified
+toolchain was really enticing to me and since this was a rather simple project I thought it would be
+perfect to test drive it. Its still in early development as of writing but overall I'm pretty
+satified though for more mature/complex project I would suggest not migratting just yet.
+
+### Miscellaneous Tech Information
+
+- Laptop: Rog Zephyrus G16
+- Operating System: [Fedora Linux](https://fedoraproject.org/)
+- IDE: [Zed](https://zed.dev/)
+
+## Design
+
+I tried to go for a minimalistic asthetic and make the user experience feel as smooth as possible. I
+tried to make the website with little to no visual clutter when it came to major text sections. The
+reading experience is very important to me and I tried to make it so people can actually enjoy
+reading on this website for a long period of time(if the wrtiing is interesting).
+
+### Typography
+
+- **Exo 2** -- A geometric sans-serif typeface with a futuristic style that I use for all
+  headings/titles. I could probably find a much better font for the headings but a good friend of
+  mine from a long time ago used this font a lot and because of that I have a bias towards using it.
+- **Share Tech** -- Another techno style font that acts a lot like a monospace font but isn't. Its
+  mainly used for text that isn't meant to be the main focus like UI elements.
+- **Atkinson Hyperlegible Next** -- This font might be the most readable font I've encountered and
+  is really nice to write blogs in. Its main text you'll see throughout the website.
+
+### Color
+
+I'm really bad with color and this section is probably the section I'll change the most over time.
+The site uses `light-dark()` CSS variables so colors adapt to the user's system theme but currently
+I don't actually have a light theme. Its just defined in CSS for the future whenever that is.
+
+<ColorPalette />
+
+## Credits and Acknowledgements
+
+I used a bunch of third-party tools and packages in order to create this website and also drew quite
+a bit of inspiration from others that I would like to thank here. There's also a disclaimer for any
+third party copyrighted assets I do not own.
+
+### Open-Source Software
+
+I'm a big believer in open source and I try to stay away from propriety tech in my codebases both
+from a philosophical standpoint and from a security standpoint. Without the open source community I
+wouldn't be able to create the things I do. The tech section already mentioned all the open source
+software I've used and I have infinite respect for the people that commit their time to making them
+as good as they are.
+
+### Media and Third Party Assets
+
+The images, diagrams, and visual media used across the blog posts on this site are included strictly
+for context, illustration, and commentary. This website operates purely as a personal,
+non-commercial portfolio and blog that generates zero revenue, hosts no advertisements, and does not
+sell any products or services.
+
+Third-party visual assets are utilized in good faith under the
+[Fair Use doctrine](https://www.copyright.gov/fair-use/) for the purposes of education, review,
+critique, and analysis. While every effort is made to provide proper attribution to original
+creators and source material, copyright ownership remains with the respective holders. If you are
+the owner of any media used here and believe its placement does not qualify as fair use, or if you
+simply wish for your work to be removed, please contact me and the asset will be taken down
+immediately.
+
+### Creative Inspirations
+
+I'm not the most creative person of all time so there are many times where I see something cool from
+another person that eventaully ends up part of the website here.
+
+- Shoutout to Youwen Wu and his [website](https://web.youwen.dev/) for providing me with ideas about
+  what pages I should add and the content that should be in them.
+
+## Licensing
+
+Here some stuff about personal licensing independent of the third-party licences that I have used.
+These in my opinion are quite common sense but its good to lay them out properly.
+
+- **Website Source Code:** All [the code](https://github.com/Makkerel/Astro-Blog) powering this site
+  is completely open-source and licensed under the [MIT](https://opensource.org/license/mit)
+  License. Do what you wish with it.
+- **Creative Content and Assets:** The personal writing, images and art are licensed under
+  [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en)
+  (CC BY-NC-ND 4.0). Please don't steal my stuff or plagiraze my writing simple as that.
