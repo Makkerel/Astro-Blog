@@ -1,21 +1,11 @@
 ---
-import { Image } from "astro:assets";
-
+import Figure from "./figure.astro";
 const { title, image, description, date, img_d, width = 1000 } = Astro.props;
 ---
 
 <style>
     .introduction {
         margin-bottom: 1rem;
-    }
-
-    .hero-figure {
-        margin: 0;
-        text-align: center;
-    }
-
-    figcaption {
-        font-size: 0.85rem;
     }
 
     .information h1 {
@@ -41,15 +31,7 @@ const { title, image, description, date, img_d, width = 1000 } = Astro.props;
 </style>
 
 <div class="introduction">
-    <figure class="hero-figure">
-        <Image
-            src={image}
-            alt="Sbhacks img"
-            layout="constrained"
-            width={width}
-        />
-        {img_d && <figcaption>{img_d}</figcaption>}
-    </figure>
+    <Figure src={image} alt="title_img" width={width} caption={img_d} />
     <div class="information">
         <h1>{title}</h1>
         <time datetime={date}>{date.toString().slice(0, 10)}</time>

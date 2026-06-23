@@ -70,7 +70,7 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
     .toc-item a {
         display: block;
         border-left: 2px solid transparent;
-        padding-left: 0.5rem;
+        padding-left: 0.25rem;
     }
 
     .toc-item a,
@@ -110,8 +110,9 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 </style>
 
 <script>
-    const HEADER_OFFSET = 150;
+    const HEADER_OFFSET = 100;
     const CLICK_LOCK_MS = 500;
+    const BOTTOM_OFFSET = 120;
 
     let cleanup: (() => void) | null = null;
 
@@ -165,7 +166,7 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
         function atPageBottom() {
             return (
                 window.innerHeight + window.scrollY >=
-                document.documentElement.scrollHeight
+                document.documentElement.scrollHeight - BOTTOM_OFFSET
             );
         }
 
