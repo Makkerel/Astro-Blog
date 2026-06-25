@@ -1,65 +1,87 @@
-# Project Structure
+# Astro Blog
+
+Personal blog and portfolio built with [Astro](https://astro.build/), [MDX](https://mdxjs.com/), and
+[Vite+](https://viteplus.dev/guide/). Hosted on [Cloudflare](https://www.cloudflare.com/) via
+Wrangler.
+
+## Tech Stack
+
+- **Astro 6** — static site framework
+- **MDX** — blog posts and content pages with components
+- **Vite+** — unified toolchain for dev, build, and task running
+  ([guide](https://viteplus.dev/guide/))
+- **Cloudflare Wrangler** — deployment to Cloudflare Workers/Pages
+- **pnpm** — package manager
+
+## Project Structure
 
 ```text
 /
-├── public/
-│   └── (static assets like favicon, images not processed by Astro)
-├── src
-│   ├── assets/
-│   │   ├── Images and Icons and Stuff
-│   ├── components/
-│   │   ├── blogpost.astro
-│   │   ├── footer.astro
-│   │   ├── header.astro
-│   │   ├── link.astro
-│   │   └── navigation.astro
-│   ├── layouts/
-│   │   ├── baseLayout.astro
-│   │   └── markdownLayout.astro
-│   ├── pages/
-│   │   ├── posts/
-            └── all blog posts
-│   │   ├── tags/
-│   │   ├── about.astro
-│   │   ├── blogs.astro
-│   │   └── index.astro
-│   ├── scripts/
-│   └── styles/
-        └── global.css
+├── public/                  # Static assets (not processed by Astro)
+├── src/
+│   ├── assets/              # Images and SVGs processed by Astro
+│   ├── components/
+│   │   ├── blogpost.astro   # Blog post card for listing pages
+│   │   ├── colorPalette.astro
+│   │   ├── details.astro
+│   │   ├── figure.astro     # Inline images with optional captions
+│   │   ├── footer.astro
+│   │   ├── header.astro
+│   │   ├── link.astro       # External link component for MDX
+│   │   ├── navigation.astro
+│   │   ├── tableOfContents.astro
+│   │   ├── tags.astro       # Optional per-post tags footer
+│   │   └── title.astro      # Post hero (image, title, date, dek)
+│   ├── layouts/
+│   │   ├── baseLayout.astro
+│   │   └── markdownLayout.astro
+│   ├── pages/
+│   │   ├── posts/           # Blog posts (.mdx)
+│   │   ├── tags/            # Tag index and [tag] pages
+│   │   ├── about.astro
+│   │   ├── blogs.astro
+│   │   ├── collophon.mdx
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
+├── wrangler.jsonc           # Cloudflare deployment config
+└── pnpm-workspace.yaml      # Vite+ catalog overrides
 ```
 
-**Info on Directories and Files:**
+### Directories and Files
 
-- **`src/pages/`**: Contains `.astro` pages and Markdown files for routing.
-  - `index.astro`: The homepage of website.
-  - `about.astro`: An about page.
-  - `blogs.astro`: A page listing blog posts.
-  - `pages/posts/`: Contains individual blog post entries (e.g., Markdown files).
-  - `pages/tags/`: Could be used for tag-based filtering of content.
-- **`src/layouts/`**: Houses Astro layout components that define the common structure and styling
-  for pages.
-  - `baseLayout.astro`: A fundamental layout used across multiple pages.
-  - `markdownLayout.astro`: A specific layout for rendering Markdown content.
-- **`src/components/`**: Reusable Astro components.
-  - `header.astro`, `footer.astro`, `navigation.astro`: Common UI elements.
-  - `blogpost.astro`: A component specifically for displaying blog post content.
-  - `link.astro`: Special External Links for the website
-- **`src/assets/`**: Stores static assets like images and SVGs that are typically processed by
-  Astro's build pipeline.
-- **`src/styles/`**: Contains global stylesheets for your project.
-  - `global.css`: Your main CSS file for project-wide styling.
-- **`src/scripts/`**: For client-side JavaScript that may be needed for interactive elements.
-- **`public/`**: For static assets that should not be processed by Astro, such as `favicon.svg`.
+- **`src/pages/`** — Routes. `.astro` and `.mdx` files become pages.
+  - `index.astro` — Homepage
+  - `about.astro` — About page
+  - `blogs.astro` — Blog post listing
+  - `collophon.mdx` — Colophon, acknowledgements, and licensing
+  - `posts/` — Individual blog posts (MDX)
+  - `tags/` — Tag index and per-tag listing pages
+- **`src/layouts/`** — Page shells
+  - `baseLayout.astro` — Site-wide layout (header, footer, fonts)
+  - `markdownLayout.astro` — Article layout with table of contents
+- **`src/components/`** — Reusable Astro components used across pages and MDX
+- **`src/assets/`** — Images and icons processed by Astro's asset pipeline
+- **`src/styles/global.css`** — Global CSS variables, typography, and base styles
+- **`public/`** — Static files served as-is (e.g. favicon)
 
 ## Commands
 
-All commands are run from the root of the project, from a terminal:
+This project uses [Vite+](https://viteplus.dev/guide/) (`vp`) as the primary CLI. Package scripts
+are run through `vp run`, which wraps `package.json` scripts with Vite+'s task runner.
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+| Command            | Action                                                    |
+| :----------------- | :-------------------------------------------------------- |
+| `pnpm install`     | Install dependencies                                      |
+| `vp run dev`       | Start local dev server at `localhost:4321`                |
+| `vp run build`     | Build production site to `./dist/`                        |
+| `vp run preview`   | Preview the production build locally                      |
+| `vp run deploy`    | Deploy to Cloudflare via Wrangler                         |
+| `vp run astro ...` | Run Astro CLI commands (`astro add`, `astro check`, etc.) |
+
+You can also use `pnpm dev`, `pnpm build`, etc. directly — they call the same Astro scripts.
+`vp run` is preferred for caching and consistency with the Vite+ toolchain.
+
+See the [Vite+ guide](https://viteplus.dev/guide/) for more: `vp dev`, `vp build`, `vp preview`, and
+`vp run` for script execution.
