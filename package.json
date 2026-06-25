@@ -20,7 +20,8 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "wrangler": "^4.104.0"
   },
   "devEngines": {
     "packageManager": {
