@@ -24,8 +24,13 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<BaseLayout pageTitle={tag}>
-    <p>Posts tagged with {tag}</p>
+<BaseLayout page_title={tag}>
+    <div class="page-header">
+        <p class="page-title">{tag} Posts</p>
+        <p class="back-link">
+            <a href="/blogs/" id="tag-back-link">← All posts</a>
+        </p>
+    </div>
     {
         posts.map((post: any) => (
             <Blogpost
@@ -37,3 +42,46 @@ const { posts } = Astro.props;
         ))
     }
 </BaseLayout>
+
+<style>
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .back-link {
+        padding: 0 1rem 0 0;
+    }
+
+    .back-link a {
+        color: var(--accent-color);
+        white-space: nowrap;
+    }
+
+    .back-link a:hover {
+        filter: brightness(150%);
+    }
+</style>
+
+<script>
+    const postPathPattern = /^\/posts\/[^/]+\/?$/;
+
+    function updateBackLink() {
+        const anchor = document.querySelector<HTMLAnchorElement>("#tag-back-link");
+        if (!anchor) return;
+
+        const from = new URLSearchParams(location.search).get("from");
+        if (from && postPathPattern.test(from)) {
+            anchor.href = from;
+            anchor.textContent = "← Back to article";
+        } else {
+            anchor.href = "/blogs/";
+            anchor.textContent = "← All posts";
+        }
+    }
+
+    updateBackLink();
+    document.addEventListener("astro:page-load", updateBackLink);
+</script>

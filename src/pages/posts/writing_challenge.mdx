@@ -9,6 +9,7 @@ tags: ["Life", "Philosophy"]
 
 import Title from "../../components/title.astro";
 import Link from "../../components/link.astro";
+import Tags from "../../components/tags.astro";
 export const components = { a: Link };
 import WritingImg from "../../assets/writing_image.jpg";
 
@@ -46,3 +47,5 @@ on _how_ to write better as well. On top of the writing I plan to make the blogs
 text and probably add some more flavor. Of course images are a must but for many I'll probably start
 incorporating block quotes/callouts to make the experience less dry. Overall this experiment should
 I also serve as a great way to get better at using the tools of online blog to impact the reader.
+
+<Tags tags={frontmatter.tags} />

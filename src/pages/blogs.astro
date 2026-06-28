@@ -1,10 +1,15 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
 import Blogpost from "../components/blogpost.astro";
+import Tags from "../components/tags.astro";
 import "../styles/global.css";
 
 const all_posts = Object.values(import.meta.glob("./posts/*.mdx", { eager: true }));
 const page_title = "Blog";
+
+const all_tags = [
+    ...new Set(all_posts.flatMap((post: any) => post.frontmatter.tags ?? [])),
+].sort();
 
 all_posts.sort((a: any, b: any) => {
     if (a.frontmatter.date < b.frontmatter.date) {
@@ -19,6 +24,7 @@ all_posts.sort((a: any, b: any) => {
 
 <BaseLayout page_title={page_title}>
     <h1>Blogs</h1>
+    <Tags tags={all_tags} heading={false} />
     {
         all_posts.map((post: any) => (
             <Blogpost

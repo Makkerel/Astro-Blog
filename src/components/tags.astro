@@ -1,40 +1,52 @@
 ---
 interface Props {
     tags: string[];
+    heading?: boolean;
+    returnTo?: string;
 }
 
-const { tags } = Astro.props;
+const { tags, heading = true, returnTo: returnToProp } = Astro.props;
+
+const returnTo =
+    returnToProp ??
+    (Astro.url.pathname.startsWith("/posts/")
+        ? Astro.url.pathname
+        : undefined);
+
+function tagHref(tag: string) {
+    const base = `/tags/${encodeURIComponent(tag)}/`;
+    return returnTo
+        ? `${base}?from=${encodeURIComponent(returnTo)}`
+        : base;
+}
 ---
 
 {
     tags.length > 0 && (
-        <footer class="post-tags">
-            <h3>Tags</h3>
+        <>
+            {heading && <h3>Tags</h3>}
             <div class="tags">
                 {tags.map((tag) => (
-                    <a href="/blogs" class="tag">
+                    <a href={tagHref(tag)} class="tag">
                         {tag}
                     </a>
                 ))}
             </div>
-        </footer>
+        </>
     )
 }
 
 <style>
-    .post-tags {
-        margin-top: 1.5rem;
-    }
-
     .tags {
         display: flex;
+        flex-wrap: wrap;
         padding: 1rem;
         gap: 1rem;
     }
 
     .tag {
         font-size: 150%;
-        padding: 0.5rem;
+        padding: 0.25rem 0.75rem;
         border: 1px solid var(--secondary-color);
         transition: filter 0.3s ease;
     }
