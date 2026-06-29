@@ -12,12 +12,8 @@ const all_tags = [
 ].sort();
 
 all_posts.sort((a: any, b: any) => {
-    if (a.frontmatter.date < b.frontmatter.date) {
-        return 1;
-    }
-    if (a.frontmatter.date > b.frontmatter.date) {
-        return -1;
-    }
+    if (a.frontmatter.date < b.frontmatter.date) return 1;
+    if (a.frontmatter.date > b.frontmatter.date) return -1;
     return 0;
 });
 ---

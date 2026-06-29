@@ -10,9 +10,13 @@ export async function getStaticPaths() {
         ...new Set(all_posts.map((post: any) => post.frontmatter.tags).flat()),
     ];
     return unique_tags.map((tag) => {
-        const filtered_post = all_posts.filter((post: any) =>
-            post.frontmatter.tags.includes(tag),
-        );
+        const filtered_post = all_posts
+            .filter((post: any) => post.frontmatter.tags.includes(tag))
+            .sort((a: any, b: any) => {
+                if (a.frontmatter.date < b.frontmatter.date) return 1;
+                if (a.frontmatter.date > b.frontmatter.date) return -1;
+                return 0;
+            });
         return {
             params: { tag },
             props: { posts: filtered_post },
@@ -26,7 +30,7 @@ const { posts } = Astro.props;
 
 <BaseLayout page_title={tag}>
     <div class="page-header">
-        <p class="page-title">{tag} Posts</p>
+        <p class="page-title"><span class="title-tag">{tag}</span> Posts</p>
         <p class="back-link">
             <a href="/blogs/" id="tag-back-link">← All posts</a>
         </p>
@@ -49,6 +53,14 @@ const { posts } = Astro.props;
         justify-content: space-between;
         align-items: center;
         gap: 1rem;
+    }
+
+    .page-title {
+        font-family: var(--font-exo-2);
+    }
+
+    .title-tag{
+        color: var(--tertiary-color);
     }
 
     .back-link {
