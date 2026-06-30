@@ -79,7 +79,7 @@ all_posts.sort((a: any, b: any) => {
         justify-self: end;
         align-self: center;
         margin: 0;
-        padding: 0 1rem 0 0;
+        padding: 0 1rem 0 1rem;
     }
 
     .section-link a {
@@ -98,6 +98,13 @@ all_posts.sort((a: any, b: any) => {
 
         .intro_img {
             margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .section-link {
+            justify-self: start;
+            grid-area: 2 / 1;
         }
     }
 </style>
