@@ -1,7 +1,5 @@
 ---
 import Link from "./link.astro";
-import { Image } from "astro:assets";
-import GithubSVG from "../assets/github-brands-solid.svg";
 import "../styles/global.css";
 ---
 
@@ -14,37 +12,13 @@ import "../styles/global.css";
         padding-bottom: 1rem;
         outline: 1px solid var(--secondary-color);
     }
-
-    .logo {
-        filter: invert(0) brightness(90%);
-        transition: filter 0.2s;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .logo {
-            filter: invert(100) brightness(90%);
-        }
-    }
-
-    .logo:hover {
-        filter: invert(100) brightness(100%);
-    }
 </style>
 
 <footer>
-    <span>
-        <a
-            href="https://github.com/Makkerel/Astro-Blog"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><Image
-                src={GithubSVG}
-                width={30}
-                alt="Github Svg"
-                class="logo"
-            /></a
-        >
-    </span>
+    <Link
+        link="https://github.com/Makkerel/Astro-Blog"
+        name="Source Code"
+    />
     <Link
         link="../collophon"
         name="Colophon, Acknowledgements, and Licensing"

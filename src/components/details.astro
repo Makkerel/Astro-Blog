@@ -1,12 +1,17 @@
 ---
+import { ChevronDown } from "@lucide/astro";
 import "../styles/global.css";
+
 const { name } = Astro.props;
 ---
 
 <style>
     summary {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         outline: 1px solid var(--secondary-color);
-        padding-left: 0.5rem;
+        padding: 0 0.5rem;
         list-style: none;
         font-size: 25px;
         font-weight: bold;
@@ -14,21 +19,24 @@ const { name } = Astro.props;
         cursor: pointer;
     }
 
-    summary::before {
-        content: url("../assets/angle-down-solid.svg");
-        padding: 0 0.5rem;
-        position: relative;
-        color: var(--text-color);
-        display: inline-block;
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .chevron {
+        flex-shrink: 0;
         transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    details:open > summary::before {
+    details:open > summary .chevron {
         transform: rotate(180deg);
-        top: -0.1rem;
     }
 </style>
+
 <details>
-    <summary>{name}</summary>
+    <summary>
+        <ChevronDown size={20} class="chevron" />
+        {name}
+    </summary>
     <slot />
 </details>
