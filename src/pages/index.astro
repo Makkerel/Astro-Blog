@@ -5,12 +5,27 @@ import Blogpost from "../components/blogpost.astro";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import "../styles/global.css";
+
 const all_posts = Object.values(import.meta.glob("./posts/*.mdx", { eager: true }));
 const page_title = "Welcome";
 
-const stick_figures = import.meta.glob<{ default: ImageMetadata }>("../assets/stick_figures/*.png");
+const stick_figures = import.meta.glob<{ default: ImageMetadata }>(
+    "../assets/stick_figures/*.png",
+);
 
 const stick_images = Object.values(stick_figures);
+
+const find_me_links = [
+    { name: "Github", url: "https://github.com/Makkerel" },
+    {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/kevin-zhao-955069334",
+    },
+    {
+        name: "Handshake",
+        url: "https://ucsb.joinhandshake.com/profiles/xddrqq",
+    },
+];
 
 all_posts.sort((a: any, b: any) => {
     if (a.frontmatter.date < b.frontmatter.date) {
@@ -28,38 +43,80 @@ all_posts.sort((a: any, b: any) => {
         display: flex;
         place-items: center;
     }
+
     .intro_p {
         flex: 2;
+        min-width: 0;
     }
+
     .intro_img {
         text-align: center;
         flex: 1;
+        min-width: 0;
     }
+
     #img_container {
         display: grid;
+        justify-content: center;
         grid-template-areas: "stack";
         cursor: pointer;
+        margin: 0 auto;
     }
+
     .img_list {
         grid-area: stack;
-        width: 100%;
-        height: 100%;
+        height: auto;
         opacity: 0;
         transition: opacity 0.4s ease-in-out;
         pointer-events: none;
     }
+
     .img_list.active {
         opacity: 1;
         pointer-events: auto;
+    }
+
+    .page-header {
+        display: grid;
+    }
+
+    .page-header h2 {
+        grid-area: 1 / 1;
+    }
+
+    .section-link {
+        grid-area: 1 / 1;
+        justify-self: end;
+        align-self: center;
+        margin: 0;
+        padding: 0 1rem 0 0;
+    }
+
+    .section-link a {
+        color: var(--accent-color);
+        white-space: nowrap;
+    }
+
+    .section-link a:hover {
+        filter: brightness(150%);
+    }
+
+    @media (max-width: 768px) {
+        .intro_paragraph {
+            flex-direction: column;
+        }
+
+        .intro_img {
+            margin: 0 auto;
+        }
     }
 </style>
 
 <script>
     document.addEventListener("astro:page-load", () => {
         const image_container = document.getElementById("img_container");
-        if(!image_container)
-        {
-          return;
+        if (!image_container) {
+            return;
         }
         const images = document.querySelectorAll(".img_list");
         let currentIndex = 0;
@@ -80,31 +137,68 @@ all_posts.sort((a: any, b: any) => {
     <div class="intro_paragraph">
         <div class="intro_p">
             <p>
-                Hi I'm Kevin and this website serves as the corner of the internet where I put my stuff(not a lot of it
-                right now). I'm currently a student at UCSB studying computer science with a minor in math.
+                Hi I'm Kevin and this website serves as the corner of the internet
+                where I put my stuff(not a lot of it right now). I'm currently a
+                student at UCSB studying computer science with a minor in math.
             </p>
             <p>
-                Most of the stuff here is text but I'm learning to draw so hopefully I have some artwork here soon. Also
-                links with an arrow are external links and anything without the arrow are internal links.
-            </p>
-            <p>
-                Find Me: <br />
-                <Link link="https://github.com/Makkerel" name="Github" />
-                <br />
-                <Link link="https://www.linkedin.com/in/kevin-zhao-955069334" name="LinkedIn" />
-                <br />
-                <Link link="https://ucsb.joinhandshake.com/profiles/xddrqq" name="Handshake" />
+                Most of the stuff here is text but I'm learning to draw so
+                hopefully I have some artwork here soon. Also links with an
+                arrow are external links and anything without the arrow are
+                internal links.
             </p>
         </div>
         <div class="intro_img">
             Click Me!
             <div id="img_container">
-                <Image src={stick_images[0]()} alt="begin_image" class="img_list active" />
-                {stick_images.slice(1).map((image) => <Image src={image()} alt="stick man" class="img_list" />)}
+                <Image
+                    src={stick_images[0]()}
+                    alt="begin_image"
+                    class="img_list active"
+                    width={300}
+                />
+                {
+                    stick_images
+                        .slice(1)
+                        .map((image) => (
+                            <Image
+                                src={image()}
+                                alt="stick man"
+                                class="img_list"
+                                width={300}
+                            />
+                        ))
+                }
             </div>
         </div>
     </div>
-    <h2>Recent Blogs</h2>
+
+    <h2>What You'll Find Here</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+    </p>
+
+    <h2>Find Me</h2>
+    <p>
+        {
+            find_me_links.map((item, index) => (
+                <>
+                    {index > 0 && <br />}
+                    <Link link={item.url} name={item.name} />
+                </>
+            ))
+        }
+    </p>
+
+    <div class="page-header">
+        <h2>Recent Blogs</h2>
+        <p class="section-link">
+            <a href="/blogs/">View all posts →</a>
+        </p>
+    </div>
     {
         all_posts
             .slice(0, 3)

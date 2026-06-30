@@ -16,22 +16,29 @@ const page_title = "About Me";
         grid-template-columns: repeat(3, minmax(100px, auto));
         gap: 10px;
     }
+
     .grid-item {
         background-color: var(--main-color);
         border: 1px solid var(--secondary-color);
         font-size: 1.25rem;
+        min-width: 0;
     }
+
     .grid-item h3 {
         border-top: none;
     }
+
     .face_figure {
         grid-row: span 2;
         margin: 0;
         text-align: center;
     }
+
     .face {
         max-width: 100%;
+        height: auto;
     }
+
     .locations,
     .age {
         display: flex;
@@ -39,10 +46,28 @@ const page_title = "About Me";
         align-items: center;
         justify-content: center;
     }
+
     .interests,
     .favorites {
         display: flex;
         flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+        .stats {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .face_figure {
+            grid-column: 1 / -1;
+            grid-row: span 1;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .stats {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 
@@ -50,13 +75,13 @@ const page_title = "About Me";
     <h1>About Me</h1>
     <div class="stats">
         <figure class="face_figure">
-            <Image src={Face} alt="My Face" } class="face" width={200} />
+            <Image src={Face} alt="My Face" class="face" width={200} />
             <figcaption><b>Me at a Clown Exhibit</b></figcaption>
         </figure>
         <p class="locations grid-item">
             Located in<br /> San Dimas, California
         </p>
-        <p class="age grid-item">I'm 20 years old</p>
+        <p class="age grid-item">I'm 21 years old</p>
         <div class="interests grid-item">
             <h3>Current Interests</h3>
             <p>
@@ -69,8 +94,15 @@ const page_title = "About Me";
             <p>
                 Food: Pho <br />
                 Programming Language: C++ <br />
-                Song: Movin' Out by Billy Joel<br />
-                Game: Terraria <br />
+                Song: <Link
+                    link="https://www.youtube.com/watch?v=cJtL8vWNZ4o"
+                    name="Movin' Out"
+                /> by Billy Joel<br />
+                Game: <Link
+                    link="https://store.steampowered.com/app/105600/Terraria/"
+                    name="Terraria"
+                />
+                <br />
             </p>
         </div>
     </div>
@@ -79,8 +111,11 @@ const page_title = "About Me";
         I'm current reading 2 books <Link
             link="https://craftinginterpreters.com/contents.html"
             name="Crafting Interpreters"
-        /> by Robert Nystrom and Crying in H Mart by Michelle Zauner. I just recently
-        got Plat in TFT. I'm attemping the <Link
+        /> by Robert Nystrom and <Link
+            link="https://en.wikipedia.org/wiki/Crying_in_H_Mart"
+            name="Crying in H Mart"
+        /> by Michelle Zauner. I just recently got Plat in TFT. I'm attemping the
+        <Link
             link="https://drawabox.com/lesson/250cylinders"
             name="250 Cylinder Challenge"
         />.
@@ -109,36 +144,79 @@ const page_title = "About Me";
     </p>
     <Details name="Books">
         <p>
-            Fundamentals of Ethics by Russ Shafer-Landau
-            <br />Operating Systems: Three Easy Pieces by Remzi H.
-            Arpaci-Dusseau and Andrea C. Arpaci-Dusseau
-            <br />Stay True by Hua Tsu
-            <br />No No Boy by John Okada
-            <br />Where the Red Fern Grows by Wilson Rawls
+            <Link
+                link="https://www.goodreads.com/book/show/7601604-the-fundamentals-of-ethics"
+                name="Fundamentals of Ethics"
+            /> by Russ Shafer-Landau
+            <br /><Link
+                link="https://pages.cs.wisc.edu/~remzi/OSTEP/"
+                name="Operating Systems: Three Easy Pieces"
+            /> by Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau
+            <br /><Link
+                link="https://en.wikipedia.org/wiki/Stay_True_(memoir)"
+                name="Stay True"
+            /> by Hua Tsu
+            <br /><Link
+                link="https://en.wikipedia.org/wiki/No-No_Boy"
+                name="No No Boy"
+            /> by John Okada
+            <br /><Link
+                link="https://en.wikipedia.org/wiki/Where_the_Red_Fern_Grows"
+                name="Where the Red Fern Grows"
+            /> by Wilson Rawls
         </p>
     </Details>
     <Details name="Manga">
         <p>
-            Grand Blue by Kenji Inoue
-            <br />Kengan Asura by Yabako Sandrovich
-            <br />Dungeon Meshi by Kui Ryouko
-            <br />The Case Study of Vanitas by Mochizuki Jun
-            <br />The Apothecary Diaries by Hyuuga Natsu, Nanao Itsuki,
-            Nekokurage
+            <Link
+                link="https://myanimelist.net/manga/70345/Grand_Blue"
+                name="Grand Blue"
+            /> by Kenji Inoue
+            <br /><Link
+                link="https://myanimelist.net/manga/72025/Kengan_Ashura"
+                name="Kengan Ashura"
+            /> by Yabako Sandrovich
+            <br /><Link
+                link="https://myanimelist.net/manga/85781/Dungeon_Meshi"
+                name="Dungeon Meshi"
+            /> by Kui Ryouko
+            <br /><Link
+                link="https://myanimelist.net/manga/93753/Vanitas_no_Karte"
+                name="The Case Study of Vanitas"
+            /> by Mochizuki Jun
+            <br /><Link
+                link="https://myanimelist.net/manga/107562/Kusuriya_no_Hitorigoto"
+                name="The Apothecary Diaries"
+            /> by Hyuuga Natsu, Nanao Itsuki, Nekokurage
         </p>
     </Details>
     <Details name="Movies">
         <p>
-            Margin Call
-            <br />Kpop Demon Hunters
+            <Link
+                link="https://www.imdb.com/title/tt1615147/"
+                name="Margin Call"
+            />
+            <br /><Link
+                link="https://www.imdb.com/title/tt14205554/"
+                name="Kpop Demon Hunters"
+            />
         </p>
     </Details>
     <Details name="TV Shows">
         <p>
-            Arcane
-            <br /> Severance
-            <br /> House M.D.
-            <br /> Mythbusters
+            <Link link="https://www.imdb.com/title/tt11126994/" name="Arcane" />
+            <br /><Link
+                link="https://www.imdb.com/title/tt11280740/"
+                name="Severance"
+            />
+            <br /><Link
+                link="https://www.imdb.com/title/tt0412142/"
+                name="House M.D."
+            />
+            <br /><Link
+                link="https://www.imdb.com/title/tt0383126/"
+                name="Mythbusters"
+            />
         </p>
     </Details>
     <Details name="Websites">
