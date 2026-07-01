@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../layouts/baseLayout.astro";
+import NowSection from "../components/nowSection.astro";
+import WritingImg from "../assets/writing_image.jpg";
+import Link from "../components/link.astro";
+import LinkList from "../components/linkList.astro";
+import "../styles/global.css";
+
+const page_title = "Now";
+const last_update = "2026-06-30";
+
+const games = [
+    {
+        name: "Arknight Endfield",
+        link: "https://endfield.gryphline.com/en-us",
+        description: "Factory sim gacha game that honestly only ok right now",
+    },
+    {
+        name: "Terraria",
+        link: "https://store.steampowered.com/app/105600/Terraria/",
+        description:
+            "Been playing a Legendary Mode playthrough with some friends",
+    },
+    {
+        name: "Slay the Spire 2",
+        link: "https://store.steampowered.com/app/2868840/Slay_the_Spire_2/",
+        description:
+            "Amazing sequel the original and the multiplayer is genuinely great",
+    },
+];
+const novels = [
+    {
+        name: "Crying in H Mart",
+        link: "https://en.wikipedia.org/wiki/Crying_in_H_Mart",
+        description: "Currently reading really good so far",
+    },
+    {
+        name: "Interior Chinatown",
+        link: "https://en.wikipedia.org/wiki/Interior_Chinatown",
+        description: "Planning on reading soon. I've heard really good things",
+    },
+];
+---
+
+<style>
+    .last-updated {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        padding: 0 1rem;
+    }
+
+    .thread + .thread {
+        margin-top: 1rem;
+    }
+
+    .thread-title {
+        font-family: var(--font-exo-2), sans-serif;
+        font-weight: bold;
+        padding: 0 1rem;
+        margin: 0;
+    }
+
+    .thread p {
+        padding-top: 0.5rem;
+    }
+
+    .rotation-item {
+        padding-top: 0.5rem;
+    }
+
+    .rotation-item strong {
+        font-family: var(--font-exo-2), sans-serif;
+    }
+</style>
+
+<BaseLayout page_title={page_title}>
+    <h1>Now</h1>
+    <time class="last-updated" datetime={last_update}
+        >Last Updated: {last_update}</time
+    >
+    <p>
+        This <Link link="https://nownownow.com/about" name="now" /> page contains
+        what I've been up to recently. Its all the stuff that will probably change
+        somewhat quickly hopefully.
+    </p>
+    <NowSection title="Life" image={WritingImg} alt="life image">
+        <p>
+            I'm now about to be a senior in college and also recently got
+            accepted to UCSB's masters program. I also got Plat in TFT recently.
+        </p>
+    </NowSection>
+
+    <NowSection title="Learning" image={WritingImg} alt="learning image">
+        <p>
+            I started learning about interpreters and programming languages with
+            the book <Link
+                link="https://craftinginterpreters.com/contents.html"
+                name="Crafting Interpreters"
+            /> by Robert Nystrom and I'm also learning combinatorics right now for
+            graph theory with <Link
+                link="https://www.amazon.com/Walk-Through-Combinatorics-Introduction-Enumeration/dp/9811277842/134-8523115-6642815"
+                name="A Walk Through Combinatorics"
+            />.
+        </p>
+        <p>
+            Taking a step back from the STEM stuff I'm currently <Link
+                link="/posts/writing_challenge"
+                name="writing more"
+            /> and also trying to find time to get better at drawing with the <Link
+                link="https://drawabox.com/lesson/250cylinders"
+                name="250 Cylinder Challenge"
+            />.
+        </p>
+    </NowSection>
+    <NowSection title="Media" image={WritingImg} alt="media image">
+        <p>
+            Heres the stuff that I've been currently spending my free time on.
+        </p>
+        <h3>Novels</h3>
+        <LinkList items={novels} />
+        <h3>Games</h3>
+        <LinkList items={games} />
+    </NowSection>
+</BaseLayout>
