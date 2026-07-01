@@ -3,10 +3,126 @@ import BaseLayout from "../layouts/baseLayout.astro";
 import { Image } from "astro:assets";
 import Face from "../assets/clown_face.jpg";
 import Link from "../components/link.astro";
+import LinkList from "../components/linkList.astro";
 import Details from "../components/details.astro";
 import "../styles/global.css";
 
 const page_title = "About Me";
+
+const books = [
+    {
+        name: "Fundamentals of Ethics",
+        link: "https://www.goodreads.com/book/show/7601604-the-fundamentals-of-ethics",
+        description: "by Russ Shafer-Landau",
+    },
+    {
+        name: "Operating Systems: Three Easy Pieces",
+        link: "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+        description: "by Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau",
+    },
+    {
+        name: "Stay True",
+        link: "https://en.wikipedia.org/wiki/Stay_True_(memoir)",
+        description: "by Hua Tsu",
+    },
+    {
+        name: "No No Boy",
+        link: "https://en.wikipedia.org/wiki/No-No_Boy",
+        description: "by John Okada",
+    },
+    {
+        name: "Where the Red Fern Grows",
+        link: "https://en.wikipedia.org/wiki/Where_the_Red_Fern_Grows",
+        description: "by Wilson Rawls",
+    },
+];
+
+const manga = [
+    {
+        name: "Grand Blue",
+        link: "https://myanimelist.net/manga/70345/Grand_Blue",
+        description: "by Kenji Inoue",
+    },
+    {
+        name: "Kengan Ashura",
+        link: "https://myanimelist.net/manga/72025/Kengan_Ashura",
+        description: "by Yabako Sandrovich",
+    },
+    {
+        name: "Dungeon Meshi",
+        link: "https://myanimelist.net/manga/85781/Dungeon_Meshi",
+        description: "by Kui Ryouko",
+    },
+    {
+        name: "The Case Study of Vanitas",
+        link: "https://myanimelist.net/manga/93753/Vanitas_no_Karte",
+        description: "by Mochizuki Jun",
+    },
+    {
+        name: "The Apothecary Diaries",
+        link: "https://myanimelist.net/manga/107562/Kusuriya_no_Hitorigoto",
+        description: "by Hyuuga Natsu, Nanao Itsuki, Nekokurage",
+    },
+];
+
+const movies = [
+    {
+        name: "Margin Call",
+        link: "https://www.imdb.com/title/tt1615147/",
+        description: "2008 might've a bad year for everyone except the first ones",
+    },
+    {
+        name: "Kpop Demon Hunters",
+        link: "https://www.imdb.com/title/tt14205554/",
+        description: "Kpop songs are really powerful",
+    },
+];
+
+const tvShows = [
+    {
+        name: "Arcane",
+        link: "https://www.imdb.com/title/tt11126994/",
+        description: "The League of Legends show that makes you think the game is good",
+    },
+    {
+        name: "Severance",
+        link: "https://www.imdb.com/title/tt11280740/",
+        description: "Bros got 2 people in his brain",
+    },
+    {
+        name: "House M.D.",
+        link: "https://www.imdb.com/title/tt0412142/",
+        description: "Medical malpractice but good",
+    },
+    {
+        name: "Mythbusters",
+        link: "https://www.imdb.com/title/tt0383126/",
+        description: "The foundations of science condensed into a TV show",
+    },
+];
+
+const websites = [
+    {
+        name: "Anna's Archive",
+        link: "https://annas-archive.pk/",
+        description: "Massive digital library",
+    },
+    {
+        name: "Wotaku Wiki",
+        link: "https://wotaku.wiki/",
+        description: "Index for all things anime",
+    },
+    {
+        name: "Coolors",
+        link: "https://coolors.co/",
+        description: "Generate color schemes",
+    },
+    {
+        name: "Dev Hints",
+        link: "https://devhints.io/",
+        description: "Useful cheatsheets for devs",
+    },
+];
 ---
 
 <style>
@@ -35,7 +151,7 @@ const page_title = "About Me";
     }
 
     .face {
-        max-width: 100%;
+        max-width: 200px;
         height: auto;
     }
 
@@ -62,6 +178,10 @@ const page_title = "About Me";
             grid-column: 1 / -1;
             grid-row: span 1;
         }
+
+        .face{
+            max-width: 100%;
+        }
     }
 
     @media (max-width: 480px) {
@@ -75,7 +195,7 @@ const page_title = "About Me";
     <h1>About Me</h1>
     <div class="stats">
         <figure class="face_figure">
-            <Image src={Face} alt="My Face" class="face" width={200} />
+            <Image src={Face} alt="My Face" class="face" width={300} />
             <figcaption><b>Me at a Clown Exhibit</b></figcaption>
         </figure>
         <p class="locations grid-item">
@@ -129,97 +249,19 @@ const page_title = "About Me";
         watch movies or TV shows though so my opinions may not be reliable.
     </p>
     <Details name="Books">
-        <p>
-            <Link
-                link="https://www.goodreads.com/book/show/7601604-the-fundamentals-of-ethics"
-                name="Fundamentals of Ethics"
-            /> by Russ Shafer-Landau
-            <br /><Link
-                link="https://pages.cs.wisc.edu/~remzi/OSTEP/"
-                name="Operating Systems: Three Easy Pieces"
-            /> by Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau
-            <br /><Link
-                link="https://en.wikipedia.org/wiki/Stay_True_(memoir)"
-                name="Stay True"
-            /> by Hua Tsu
-            <br /><Link
-                link="https://en.wikipedia.org/wiki/No-No_Boy"
-                name="No No Boy"
-            /> by John Okada
-            <br /><Link
-                link="https://en.wikipedia.org/wiki/Where_the_Red_Fern_Grows"
-                name="Where the Red Fern Grows"
-            /> by Wilson Rawls
-        </p>
+        <LinkList items={books} />
     </Details>
     <Details name="Manga">
-        <p>
-            <Link
-                link="https://myanimelist.net/manga/70345/Grand_Blue"
-                name="Grand Blue"
-            /> by Kenji Inoue
-            <br /><Link
-                link="https://myanimelist.net/manga/72025/Kengan_Ashura"
-                name="Kengan Ashura"
-            /> by Yabako Sandrovich
-            <br /><Link
-                link="https://myanimelist.net/manga/85781/Dungeon_Meshi"
-                name="Dungeon Meshi"
-            /> by Kui Ryouko
-            <br /><Link
-                link="https://myanimelist.net/manga/93753/Vanitas_no_Karte"
-                name="The Case Study of Vanitas"
-            /> by Mochizuki Jun
-            <br /><Link
-                link="https://myanimelist.net/manga/107562/Kusuriya_no_Hitorigoto"
-                name="The Apothecary Diaries"
-            /> by Hyuuga Natsu, Nanao Itsuki, Nekokurage
-        </p>
+        <LinkList items={manga} />
     </Details>
     <Details name="Movies">
-        <p>
-            <Link
-                link="https://www.imdb.com/title/tt1615147/"
-                name="Margin Call"
-            />
-            <br /><Link
-                link="https://www.imdb.com/title/tt14205554/"
-                name="Kpop Demon Hunters"
-            />
-        </p>
+        <LinkList items={movies} />
     </Details>
     <Details name="TV Shows">
-        <p>
-            <Link link="https://www.imdb.com/title/tt11126994/" name="Arcane" />
-            <br /><Link
-                link="https://www.imdb.com/title/tt11280740/"
-                name="Severance"
-            />
-            <br /><Link
-                link="https://www.imdb.com/title/tt0412142/"
-                name="House M.D."
-            />
-            <br /><Link
-                link="https://www.imdb.com/title/tt0383126/"
-                name="Mythbusters"
-            />
-        </p>
+        <LinkList items={tvShows} />
     </Details>
     <Details name="Websites">
-        <p>
-            Some maybe useful websites.
-            <br />
-            <Link link="https://annas-archive.pk/" name="Anna's Archive:" />
-            <span> Massive Digital Library</span>
-            <br />
-            <Link link="https://wotaku.wiki/" name="Wotaku Wiki:" />
-            <span> Index for all things anime</span>
-            <br />
-            <Link link="https://coolors.co/" name="Coolor Co:" />
-            <span> Allows you to generate color schemes</span>
-            <br />
-            <Link link="https://devhints.io/" name="Dev Hints:" />
-            <span> Some useful cheatsheets for devs</span>
-        </p>
+        <p>Some maybe useful websites.</p>
+        <LinkList items={websites} />
     </Details>
 </BaseLayout>
