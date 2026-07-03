@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../layouts/baseLayout.astro";
 import NowSection from "../components/nowSection.astro";
-import WritingImg from "../assets/writing_image.jpg";
+import LifeHeader from "../assets/NowPage/Life_Header.png"
+import LearningHeader from "../assets/NowPage/Learning_Header.png"
+import FunHeader from "../assets/NowPage/Fun_Header.png"
 import Link from "../components/link.astro";
 import LinkList from "../components/linkList.astro";
 import "../styles/global.css";
@@ -48,29 +50,6 @@ const novels = [
         opacity: 0.7;
         padding: 0 1rem;
     }
-
-    .thread + .thread {
-        margin-top: 1rem;
-    }
-
-    .thread-title {
-        font-family: var(--font-exo-2), sans-serif;
-        font-weight: bold;
-        padding: 0 1rem;
-        margin: 0;
-    }
-
-    .thread p {
-        padding-top: 0.5rem;
-    }
-
-    .rotation-item {
-        padding-top: 0.5rem;
-    }
-
-    .rotation-item strong {
-        font-family: var(--font-exo-2), sans-serif;
-    }
 </style>
 
 <BaseLayout page_title={page_title}>
@@ -83,14 +62,14 @@ const novels = [
         what I've been up to recently. Its all the stuff that will probably change
         somewhat quickly hopefully.
     </p>
-    <NowSection title="Life" image={WritingImg} alt="life image">
+    <NowSection title="Life" image={LifeHeader} alt="life image">
         <p>
             I'm now about to be a senior in college and also recently got
             accepted to UCSB's masters program. I also got Plat in TFT recently.
         </p>
     </NowSection>
 
-    <NowSection title="Learning" image={WritingImg} alt="learning image">
+    <NowSection title="Learning" image={LearningHeader} alt="learning image">
         <p>
             I started learning about interpreters and programming languages with
             the book <Link
@@ -112,7 +91,7 @@ const novels = [
             />.
         </p>
     </NowSection>
-    <NowSection title="Media" image={WritingImg} alt="media image">
+    <NowSection title="Media" image={FunHeader} alt="media image">
         <p>
             Heres the stuff that I've been currently spending my free time on.
         </p>
