@@ -1,0 +1,149 @@
+---
+layout: ../../layouts/markdownLayout.astro
+title: Six Flags was Fun
+author: Kevin Zhao
+description: "A review of Six Flags from a first timer"
+date: 2026-07-03
+tags: ["Life", "Review"]
+rides:
+  [
+    {
+      name: "Batman",
+      link: "https://www.sixflags.com/magicmountain/attractions/batman-the-ride",
+      description: "",
+    },
+    {
+      name: "Gold Rusher",
+      link: "https://www.sixflags.com/magicmountain/attractions/gold-rusher",
+      description: "",
+    },
+    {
+      name: "Ninja",
+      link: "https://www.sixflags.com/magicmountain/attractions/ninja",
+      description: "",
+    },
+    {
+      name: "SCREAM",
+      link: "https://www.sixflags.com/magicmountain/attractions/scream",
+      description: "",
+    },
+    {
+      name: "Tatsu",
+      link: "https://www.sixflags.com/magicmountain/attractions/tatsu",
+      description: "",
+    },
+    {
+      name: "The Great American Revolution",
+      link: "https://www.sixflags.com/magicmountain/attractions/the-new-revolution-classic",
+      description: "",
+    },
+    {
+      name: "Viper",
+      link: "https://www.sixflags.com/magicmountain/attractions/viper",
+      description: "",
+    },
+    {
+      name: "West Coast Racers",
+      link: "https://www.sixflags.com/magicmountain/attractions/west-coast-racers",
+      description: "",
+    },
+    {
+      name: "Wonder Woman",
+      link: "https://www.sixflags.com/magicmountain/attractions/wonder-woman-flight-of-courage",
+      description: "",
+    },
+  ]
+---
+
+import SixFlagsImg from "../../assets/six_flags.jpg";
+import Title from "../../components/title.astro";
+import Link from "../../components/link.astro";
+import Tags from "../../components/tags.astro";
+import LinkList from "../../components/linkList.astro";
+import Blockquote from "../../components/blockquote.astro";
+export const components = { a: Link, blockquote: Blockquote };
+
+<Title
+  title={frontmatter.title}
+  image={SixFlagsImg}
+  description={frontmatter.description}
+  date={frontmatter.date}
+  img_d="Photo by Zachariah Aussi on Unsplash"
+/>
+
+To start off I really didn't have high expectations for
+[Six Flags Magic Mountain](https://www.sixflags.com/magicmountain) . I'm not really a fan of theme
+parks or I guess the ones that I've been to which are
+[Disney Land](https://disneyland.disney.go.com/) and
+[Knott's Berry Farm](https://www.sixflags.com/knotts). I've found that the lines were too long, and
+the rides not cool enough to justify the absurdly long lines. I came into Six Flags expecting a
+similar experience but I was pleasantly surprised. Not only were the lines were generally reasonable
+and the rides were all pretty good. I went with 5 other friends and spent the time going on just
+roller coasters so my review will surround these experiences specifically.
+
+## The Best Rides
+
+{/* prettier-ignore */}
+<p style="padding-bottom: 0;">We went on</p>
+<LinkList items={frontmatter.rides} />
+<p style="padding-top: 0;">We literally ran out of time to go on any other rides and specifically decided
+not to go on X2 because many members just didn't want to go on it. Most of the rides were on average longer
+than the rides I experienced at other theme parks. But out of these 9 rides 3 of them stood out.</p>
+
+### Tatsu
+
+Tatsu is the ride that sticks the most in my mind. The ride is unique in that it unlike most rides
+the ride from the get go puts you into an upside down position. meaning that all you see is the
+ground as you go up. It's extremely exhilarating when finally drop because you are forced to look
+down as you move. The ride also incorporates multiple loops which leads to a truly amazing
+experience at the top of the loop given your position. The ride is one of the longer ones as well
+with many twists and turns. The only issue is that this rides does have the longest line of all the
+rides we tried so waiting until later would probably be a good idea.
+
+### Wonder Woman
+
+The uniqueness of this ride comes from how the ride is a single seater where there is no one next to
+you. There are people ahead and behind you but the single seater experience was surprisingly
+something I hadn't experienced before. I didn't how important it was knowing someone was next to you
+when it came to feeling fear. Furthermore, the ride has one massive and quite steep drop at the very
+beginning which lead to massive acceleration making it as fun as Tatsu. It had a mix of more drops
+and a couple of corkscrews that added to the experience and since you're by yourself I actually felt
+a bit anxious during this ride. It feels really fast and because of the constant drops there's this
+constant up and down that other might not find as fun.
+
+### Viper
+
+Viper had the highest drop out of all the rides we went on. Luckily the drop is not as steep as
+wonder woman but because it was so high there was like a good maybe 30 seconds - 1 minute that was
+just going up slowly. This slow ascent built a lot of anticipation and the designers of this ride
+really know how to play with emotions because as you reach the top there is slight unexpected delay
+for when you drop that throws off anyone's preparations and makes the ensuring ride exiting. The
+rest of the ride and its main appeal is that its pretty much all loops and a somewhat tight turn a
+later into the ride which made the ride really fun and unique even compared to the other rides we
+went on. However, Viper is the only ride where I felt a slight bit of nausea after it was over.
+
+## Other Areas
+
+While the rides are the most important part of theme parks its not the only things that makes theme
+parks a nicer experience. On thing I would like to reiterate is that I found the park to be just
+overall less crowded than compared to other parks and that generally made everything feel more fluid
+throughout the day.
+
+A decently large factor for anyone is still going to be the price and it is honestly less expensive
+than the other theme parks I have gone to with the base ticket price being just 55-65\$ if bought
+online. The parking is 40\$ but that's normal for pretty much all theme parks. The major value
+though the All Day Dining add on which is 35\$ and allows you to get a free meal every 90 minutes
+which is absurdly nice if you plan to spend the entire day at Six Flags. A few of my friends had it
+and it was incredibly nice to be able to eat pretty much whenever we wanted. According to some of my
+friends the food was actually better than other theme parks overall.
+
+## Final Review
+
+I would rate Six Flags the best theme park out of all of ones I've gone to so far and I strongly
+recommend going. I don't recommend bringing really small children though due to many rides probably
+being off limits. Slight tidbit that while there is security at the entrance my entire friend group
+was able to get in without getting our bags checked so if you want to risk it you can try to just
+bring in a bunch of outside food. If you don't want to risk it I recommend buying the All Day Dining
+if you plan to spend the entire day at Six Flags.
+
+<Tags tags={frontmatter.tags} />
