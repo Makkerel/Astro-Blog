@@ -1,0 +1,85 @@
+---
+import { Copy, Check } from "@lucide/astro";
+
+interface Props {
+    text: string;
+    label?: string;
+}
+
+const { text, label = "Copy to clipboard" } = Astro.props;
+---
+
+<button
+    type="button"
+    class="copy-btn"
+    data-copy={text}
+    aria-label={label}
+>
+    <slot/>
+    <Copy size={18} class="copy-icon" aria-hidden="true" />
+    <Check size={18} class="check-icon" aria-hidden="true" />
+</button>
+
+<style>
+    .copy-btn {
+        line-height: 1.6;
+        padding: 0;
+        background: none;
+        border: none;
+        color: var(--accent-color);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .copy-icon{
+        transition: filter 0.2s ease;
+    }
+
+    .copy-btn:hover .copy-icon{
+        filter: brightness(150%);
+    }
+
+    .copy-btn .check-icon {
+        display: none;
+    }
+
+    .copy-btn.copied .copy-icon {
+        display: none;
+    }
+
+    .copy-btn.copied .check-icon {
+        display: block;
+        color: var(--tertiary-color);
+    }
+</style>
+
+<script>
+    if (!document.documentElement.dataset.copyDelegated) {
+        document.documentElement.dataset.copyDelegated = "true";
+
+        document.addEventListener("click", async (e) => {
+            const btn = (e.target as Element).closest<HTMLButtonElement>(
+                ".copy-btn",
+            );
+            if (!btn) return;
+
+            try {
+                await navigator.clipboard.writeText(btn.dataset.copy ?? "");
+                btn.classList.add("copied");
+
+                const existing = btn.dataset.resetId;
+                if (existing) clearTimeout(Number(existing));
+
+                btn.dataset.resetId = String(
+                    setTimeout(() => {
+                        btn.classList.remove("copied");
+                        delete btn.dataset.resetId;
+                    }, 2000),
+                );
+            } catch {
+            }
+        });
+    }
+</script>
