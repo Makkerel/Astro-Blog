@@ -1,0 +1,31 @@
+---
+import { ChevronRight } from "@lucide/astro";
+---
+
+<li class="unordered-list-item">
+    <ChevronRight size={24} class="marker" aria-hidden="true" />
+    <span class="content">
+        <slot />
+    </span>
+</li>
+
+<style>
+    .unordered-list-item {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .marker {
+        flex-shrink: 0;
+        margin-top: 0.25rem;
+        color: var(--tertiary-color);
+    }
+
+    :global(ol) .unordered-list-item {
+        display: list-item;
+    }
+
+    :global(ol) .marker {
+        display: none;
+    }
+</style>

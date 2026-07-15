@@ -9,10 +9,10 @@ tags: ["Programming", "Review", "Life"]
 
 import SBHacks from "../../assets/sbhacks.png";
 import Title from "../../components/title.astro";
-import Link from "../../components/link.astro";
 import Tags from "../../components/tags.astro";
+import { mdxComponents } from "../../scripts/mdxComponents";
 
-export const components = { a: Link };
+export const components = mdxComponents;
 
 <Title
   title={frontmatter.title}

@@ -12,10 +12,10 @@ import Figure from "../../components/figure.astro";
 import LK99_Pellet from "../../assets/LK99/LK-99_pellet.png";
 import LK99_Graph from "../../assets/LK99/LK-99Graph.png";
 import Nature from "../../assets/LK99/Nature.jpg";
-import Link from "../../components/link.astro";
 import Tags from "../../components/tags.astro";
+import { mdxComponents } from "../../scripts/mdxComponents";
 
-export const components = { a: Link };
+export const components = mdxComponents;
 
 <Title
   title={frontmatter.title}
